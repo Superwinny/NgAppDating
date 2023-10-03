@@ -6,7 +6,7 @@ import { Auth, GoogleAuthProvider,authState,signInWithPopup, signOut } from '@an
 })
 export class AuthService {
 
-  currentUser = authState(this._auth)
+  currentUser = authState(this._auth as any)
 
   constructor(
     private readonly _auth: Auth
