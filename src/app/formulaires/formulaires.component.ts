@@ -7,4 +7,5 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulaires.component.scss']
 })
 export class FormulairesComponent {
+
 }
