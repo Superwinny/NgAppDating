@@ -7,13 +7,4 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulaires.component.scss']
 })
 export class FormulairesComponent {
-
-  // constructor(
-  //   private readonly _router: Router
-  // ){}
-
-
-  // navigateByURL(absoluteURL: string){
-  //   this._router.navigateByUrl(absoluteURL)
-  // }
 }
