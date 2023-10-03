@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "projet-app-dating-angular": {
+      "hosting": {
+        "NgAppDating": [
+          "projet-app-dating-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "projet-app-dating-angular"
+  }
+}
