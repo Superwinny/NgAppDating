@@ -4,8 +4,8 @@ import { AppComponent } from './app.component';
 import { FormulairesComponent } from './formulaires/formulaires.component';
 
 const routes: Routes = [
-  {path: 'pageCo', component: AppComponent},
-  {path: 'formulaire', component: FormulairesComponent}
+  {path: 'pageco', component: AppComponent},
+  // {path: 'formulaire', component: FormulairesComponent}
 
 
 ];

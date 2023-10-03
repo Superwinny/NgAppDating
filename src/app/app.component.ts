@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FirebaseService } from './Services/firebase.service';
 import { AuthService } from './Services/auth.service';
 import { UserCredential } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,16 +16,16 @@ export class AppComponent {
   CurrentUser = this.authService.currentUser
 
   constructor(
-     private readonly _fireStoreService: FirebaseService,
+     //private readonly _fireStoreService: FirebaseService,
     private readonly authService: AuthService,
-    private readonly _router: Router,
+    // private readonly _router: Router,
   ){
 
   }
 
-  navigateByURL(absoluteURL: string){
-    this._router.navigateByUrl(absoluteURL)
-  }
+  // navigateByURL(absoluteURL: string){
+  //   this._router.navigateByUrl(absoluteURL)
+  // }
 
   async actions(type: string, payload?: any) {
     switch (true) {
