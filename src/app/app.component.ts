@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FirebaseService } from './Services/firebase.service';
 import { AuthService } from './Services/auth.service';
 import { UserCredential } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +13,10 @@ export class AppComponent {
   title = 'NgAppDating';
   userCreds!: UserCredential | null;
   CurrentUser = this.authService.currentUser
+
   constructor(
-    // private readonly _fireStoreService: FirebaseService,
-     //private _router: Router,
+     private readonly _fireStoreService: FirebaseService,
+    //  private _router: Router,
     private readonly authService: AuthService
   ){
 
@@ -23,6 +24,7 @@ export class AppComponent {
   // async startApp(){
   //   this._router.navigateByUrl()
   // }
+
   async actions(type: string, payload?: any) {
     switch (true) {
       case type === 'singin':
