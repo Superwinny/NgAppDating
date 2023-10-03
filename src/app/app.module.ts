@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     BrowserModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
