@@ -8,11 +8,13 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { IonicModule } from '@ionic/angular';
 import { FormulairesComponent } from './formulaires/formulaires.component';
+import { PageCoComponent } from './page-co/page-co.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormulairesComponent
+    FormulairesComponent,
+    PageCoComponent
   ],
   imports: [
     BrowserModule,

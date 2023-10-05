@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulaires',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./formulaires.component.scss']
 })
 export class FormulairesComponent {
+constructor(
+  private readonly router: Router,
+){}
+
+
+
+// async validateForm(){
+
+
+//   this.router.navigateByUrl()
+// }
+
+
+
+
 
 }
