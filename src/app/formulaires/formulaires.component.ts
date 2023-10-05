@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Storage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-formulaires',
@@ -42,14 +43,15 @@ export class FormulairesComponent {
 
   async validateForm() {
 
-    // const formData = this.form.value;
+    //  const formGroup = this.form.value;
 
 
-    // this.userinfo.list('/users').push(formData).then(() => {
+    //  this.userinfo.list('/users').push(formGroup).then(() => {
     //   console.log('Données enregistrées avec succès dans Firebase');
+      console.log(this.form.value);
 
        this.router.navigate(['/pageapp']);
-    // })
+    //  })
     };
 
 }
