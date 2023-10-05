@@ -14,9 +14,24 @@ export class FormulairesComponent {
       Validators.required,
 
     ])),
-    lastname: new FormControl("Dos Santos", Validators.compose([
+    birthday: new FormControl("Dos Santos", Validators.compose([
       Validators.required,
-    ]))
+    ])),
+    gender: new FormControl("Homme", Validators.compose([
+      Validators.required,
+    ])),
+    desire: new FormControl("Relation", Validators.compose([
+      Validators.required,
+    ])),
+    lookingfor: new FormControl("Femme", Validators.compose([
+      Validators.required,
+    ])),
+    passion: new FormControl("ESport", Validators.compose([
+      Validators.required,
+    ])),
+    photo: new FormControl("", Validators.compose([
+      Validators.required,
+    ])),
 
   })
   constructor(
@@ -26,7 +41,7 @@ export class FormulairesComponent {
 
     async validateForm(){
 
-console.log(this.form.value);
+      console.log(this.form.value);
 
     //  this.router.navigateByUrl()
     }

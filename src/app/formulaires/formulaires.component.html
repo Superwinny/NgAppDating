@@ -6,8 +6,28 @@
       <input type="text" formControlName="firstname" />
     </div>
     <div>
-      <label for="lastname">lastname</label>
-      <input type="text" formControlName="lastname" />
+      <label for="birthday">birthday</label>
+      <input type="date" formControlName="birthday" />
+    </div>
+    <div>
+      <label for="gender">gender</label>
+      <input type="text" formControlName="gender" />
+    </div>
+    <div>
+      <label for="desire">desire</label>
+      <input type="text" formControlName="desire" />
+    </div>
+    <div>
+      <label for="lookingfor">looking for</label>
+      <input type="text" formControlName="lookingfor" />
+    </div>
+    <div>
+      <label for="passion">passion</label>
+      <input type="checkbox" formControlName="passion" />
+    </div>
+    <div>
+      <label for="imgprofil">photo</label>
+      <input type="image" formControlName="photo" />
     </div>
     <button (click)="validateForm()">Validate</button>
   </form>
