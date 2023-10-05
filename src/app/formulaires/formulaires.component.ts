@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulaires',
@@ -7,20 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulaires.component.scss']
 })
 export class FormulairesComponent {
-constructor(
-  private readonly router: Router,
-){}
+
+  form: FormGroup = new FormGroup({
+    firstname: new FormControl("", Validators.compose([
+      Validators.required,
+
+    ])),
+    lastname: new FormControl("", Validators.compose([
+      Validators.required,
+    ]))
+
+  })
+  constructor(
+    private readonly router: Router,
+  ) { }
 
 
-
-// async validateForm(){
-
-
-//   this.router.navigateByUrl()
-// }
+  //  async validateForm(){
 
 
-
-
+  //   this.router.navigateByUrl()
+  //  }
 
 }

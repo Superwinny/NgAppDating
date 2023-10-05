@@ -1,16 +1,13 @@
-
 <ion-content>
   <h1>Form</h1>
-  <form>
-  <div>
-    <label for="firstname">firstname</label>
-    <input type="text" formControlName="firstname"/>
-  </div>
-<div>
-  <label for="lastname">lastname</label>
-  <input type="text" formControlName="lastname"/>
-</div>
+  <form [formGroup]="form">
+    <div>
+      <label for="firstname">firstname</label>
+      <input type="text" formControlName="firstname" />
+    </div>
+    <div>
+      <label for="lastname">lastname</label>
+      <input type="text" formControlName="lastname" />
+    </div>
   </form>
-
-
 </ion-content>
