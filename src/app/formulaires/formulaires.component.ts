@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormulairesComponent {
 
-  form: FormGroup = new FormGroup({
+    form: FormGroup = new FormGroup({
     firstname: new FormControl("David", Validators.compose([
       Validators.required,
 
@@ -36,14 +36,20 @@ export class FormulairesComponent {
   })
   constructor(
     private readonly router: Router,
+
   ) { }
 
 
-    async validateForm(){
+  async validateForm() {
 
-      console.log(this.form.value);
+    // const formData = this.form.value;
 
-    //  this.router.navigateByUrl()
-    }
+
+    // this.userinfo.list('/users').push(formData).then(() => {
+    //   console.log('Données enregistrées avec succès dans Firebase');
+
+       this.router.navigate(['/pageapp']);
+    // })
+    };
 
 }

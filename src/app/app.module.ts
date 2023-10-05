@@ -10,12 +10,14 @@ import { IonicModule } from '@ionic/angular';
 import { FormulairesComponent } from './formulaires/formulaires.component';
 import { PageCoComponent } from './page-co/page-co.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageAppComponent } from './page-app/page-app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormulairesComponent,
-    PageCoComponent
+    PageCoComponent,
+    PageAppComponent
   ],
   imports: [
     BrowserModule,
