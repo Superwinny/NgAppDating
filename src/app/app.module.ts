@@ -9,6 +9,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { IonicModule } from '@ionic/angular';
 import { FormulairesComponent } from './formulaires/formulaires.component';
 import { PageCoComponent } from './page-co/page-co.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PageCoComponent } from './page-co/page-co.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     IonicModule.forRoot()
