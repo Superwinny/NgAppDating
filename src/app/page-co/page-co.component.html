@@ -4,14 +4,15 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div class="ion-text-center ion-padding"> <!-- Centrer le contenu -->
     <ion-grid>
-      <ion-row>
-        <ion-col size="12" class="ion-text-center"> <!-- Centrer le bouton -->
-          <ion-button (click)="actions('singin')" expand="block">GoogleIn</ion-button>
-          <ion-button (click)="actions('singout')" expand="block">GoogleOut</ion-button>
+      <ion-row >
+        <ion-col>
+          <ion-toolbar>
+
+            <ion-button (click)="actions('singin')" shape="round" fill="outline" size="large"  >GoogleIn</ion-button>
+          </ion-toolbar>
+          <!-- <ion-button (click)="actions('singout')" expand="block">GoogleOut</ion-button> -->
         </ion-col>
       </ion-row>
     </ion-grid>
-  </div>
 </ion-content>
