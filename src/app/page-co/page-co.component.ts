@@ -24,6 +24,8 @@ export class PageCoComponent {
     switch (true) {
       case type === 'singin':
         this.userCreds = await this.authService.signinWithGoogle();
+
+        // faire une condition voir si le user a deja rempli le formulaire si oui direction page apllication
         this.router.navigateByUrl('/formulaire')
         break;
       case type === 'singout':

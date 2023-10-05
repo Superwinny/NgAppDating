@@ -10,11 +10,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class FormulairesComponent {
 
   form: FormGroup = new FormGroup({
-    firstname: new FormControl("", Validators.compose([
+    firstname: new FormControl("David", Validators.compose([
       Validators.required,
 
     ])),
-    lastname: new FormControl("", Validators.compose([
+    lastname: new FormControl("Dos Santos", Validators.compose([
       Validators.required,
     ]))
 
@@ -24,10 +24,11 @@ export class FormulairesComponent {
   ) { }
 
 
-  //  async validateForm(){
+    async validateForm(){
 
+console.log(this.form.value);
 
-  //   this.router.navigateByUrl()
-  //  }
+    //  this.router.navigateByUrl()
+    }
 
 }
