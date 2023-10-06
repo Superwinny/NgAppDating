@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewEncapsulation  } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Storage } from '@angular/fire/storage';
@@ -6,12 +6,13 @@ import { Storage } from '@angular/fire/storage';
 @Component({
   selector: 'app-formulaires',
   templateUrl: './formulaires.component.html',
-  styleUrls: ['./formulaires.component.scss']
+  styleUrls: ['./formulaires.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class FormulairesComponent {
 
     form: FormGroup = new FormGroup({
-    firstname: new FormControl("David", Validators.compose([
+    firstname: new FormControl("", Validators.compose([
       Validators.required,
 
     ])),

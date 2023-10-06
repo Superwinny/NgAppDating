@@ -2,16 +2,30 @@
   <h1>Form</h1>
   <form [formGroup]="form">
     <div>
-      <label for="firstname">firstname</label>
-      <input type="text" formControlName="firstname" />
+      <ion-item>
+        <label for="firstname"></label>
+        <ion-input type="text" labelPlacement="floating" placeholder="Saisi ton prénom" formControlName="firstname"></ion-input>
+      </ion-item>
+      <!-- <input type="text" formControlName="firstname" /> -->
     </div>
     <div>
       <label for="birthday">birthday</label>
-      <input type="date" formControlName="birthday" />
+      <ion-datetime presentation="date" formControlName="birthday" [preferWheel]="true"></ion-datetime>
+
+      <!-- //<input type="date"  /> -->
     </div>
     <div>
-      <label for="gender">gender</label>
-      <input type="text" formControlName="gender" />
+      <ion-list>
+        <ion-item>
+          <label for="gender"></label>
+          <ion-select formControlName="gender" aria-label="Fruit" interface="action-sheet" placeholder="Ton genre">
+            <ion-select-option value="homme">Homme</ion-select-option>
+            <ion-select-option value="femme">Femme</ion-select-option>
+            <ion-select-option value="nonbinaire">Non Binaire</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <!-- <input type="text" /> -->
     </div>
     <div>
       <label for="desire">desire</label>
