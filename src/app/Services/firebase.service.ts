@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { user } from '@angular/fire/auth';
 import { Firestore, query, collectionData} from '@angular/fire/firestore';
 import { getDownloadURL, ref, Storage } from '@angular/fire/storage';
 import { collection, deleteDoc, doc, setDoc, updateDoc } from 'firebase/firestore';
@@ -24,7 +25,13 @@ export class FirebaseService {
   //   return data;
   // }
 
-  // async addData(data: {title: string}){
+   async addDataUser(data:any , userid: any){
+
+     const docRef = doc(this._fireStore,'user' + '/' + userid);
+     await setDoc(docRef, data)
+
+   }
+  //   async addDataUserLike(data:any){
 
   //   const docRef = doc(this._fireStore, this.databaseName + '/' + Date.now());
   //   await setDoc(docRef, data)

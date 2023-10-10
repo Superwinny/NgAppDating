@@ -2,6 +2,9 @@ import { Component,ViewEncapsulation  } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Storage } from '@angular/fire/storage';
+import { FirebaseService } from '../Services/firebase.service';
+import { AuthService } from '../Services/auth.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-formulaires',
@@ -38,21 +41,20 @@ export class FormulairesComponent {
   })
   constructor(
     private readonly router: Router,
-
+    private readonly _fireStore: FirebaseService,
+    private readonly _auth: AuthService,
   ) { }
 
 
   async validateForm() {
+      const user = await firstValueFrom(this._auth.currentUser);
+      if(user?.uid){
 
-    //  const formGroup = this.form.value;
+        this._fireStore.addDataUser(this.form.value,user.uid)
+        console.log(this.form.value);
+         this.router.navigate(['/pageapp']);
+      }
 
-
-    //  this.userinfo.list('/users').push(formGroup).then(() => {
-    //   console.log('Données enregistrées avec succès dans Firebase');
-      console.log(this.form.value);
-
-       this.router.navigate(['/pageapp']);
-    //  })
     };
 
 }

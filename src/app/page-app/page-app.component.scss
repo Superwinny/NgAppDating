@@ -1,15 +1,16 @@
-ion-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+// ion-col {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   text-align: center;
 
 
-}
+// }
 
 
 
-.ion-padding {
+:host{
+  .ion-padding {
   --padding-start:0;
   --padding-end:0;
   --padding-top:0;
@@ -17,6 +18,18 @@ ion-col {
   padding-inline-end:0;
   padding-top:0;
   padding-bottom:0;
+}
+
+.col-img{
+  height: 50vh;
+  overflow-y: scroll;
+
+}
+img{
+  display: block;
+  max-height: 100%;
+  max-width: none!important;
+}
 }
 
 
