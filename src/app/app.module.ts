@@ -11,7 +11,7 @@ import { FormulairesComponent } from './formulaires/formulaires.component';
 import { PageCoComponent } from './page-co/page-co.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageAppComponent } from './page-app/page-app.component';
-import { provideStorage } from '@angular/fire/storage';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 import { provideFirestore } from '@angular/fire/firestore';
 import { getFirestore } from 'firebase/firestore';
 
@@ -29,6 +29,7 @@ import { getFirestore } from 'firebase/firestore';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     IonicModule.forRoot()
   ],
   providers: [],
