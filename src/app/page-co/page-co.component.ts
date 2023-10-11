@@ -14,8 +14,9 @@ export class PageCoComponent {
   userCreds!: UserCredential | null;
 
 
-  constructor(private readonly authService: AuthService,
-     private readonly router: Router)
+  constructor(
+      private readonly authService: AuthService,
+      private readonly router: Router)
       {}
 
 

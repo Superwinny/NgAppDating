@@ -14,6 +14,8 @@ import { firstValueFrom } from 'rxjs';
 })
 export class FormulairesComponent {
 
+  selectedOption: string = '';
+
     form: FormGroup = new FormGroup({
     firstname: new FormControl("", Validators.compose([
       Validators.required,
@@ -45,6 +47,9 @@ export class FormulairesComponent {
     private readonly _auth: AuthService,
   ) { }
 
+  selectOption(option: string) {
+    this.selectedOption = option;
+  }
 
   async validateForm() {
       const user = await firstValueFrom(this._auth.currentUser);
