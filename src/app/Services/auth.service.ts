@@ -11,7 +11,9 @@ export class AuthService {
   constructor(
     private readonly _auth: Auth
   ) { }
-
+  isUserLoggedInWithGoogle(): boolean {
+    return !!this._auth.currentUser && this._auth.currentUser.providerData.some(data => data.providerId === 'google.com');
+  }
 
   async signinWithGoogle(){
     const provider = new GoogleAuthProvider();
