@@ -13,7 +13,7 @@ import { firstValueFrom } from 'rxjs';
   encapsulation: ViewEncapsulation.None,
 })
 export class FormulairesComponent {
-
+  selectedPassions: string[] = [];
   selectedOption: string = '';
 
     form: FormGroup = new FormGroup({
@@ -60,6 +60,19 @@ export class FormulairesComponent {
          this.router.navigate(['/pageapp']);
       }
 
-    };
+    }
+    toggleSelection(passion: string) {
+      if (this.selectedPassions.includes(passion)) {
+
+        this.selectedPassions = this.selectedPassions.filter(p => p !== passion);
+      } else if (this.selectedPassions.length < 5) {
+
+        this.selectedPassions.push(passion);
+      }
+    }
+
+    isChipSelected(passion: string): boolean {
+      return this.selectedPassions.includes(passion);
+    }
 
 }

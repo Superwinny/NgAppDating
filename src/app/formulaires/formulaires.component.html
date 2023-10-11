@@ -76,7 +76,14 @@
       </ion-grid>
 
 
+
+
+
+
+
+
       <ion-grid class="ion-no-padding">
+
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-button >Homme</ion-button>
@@ -92,14 +99,153 @@
         </ion-col>
       </ion-grid>
 
-    <div>
-      <label for="passion">passion</label>
-      <input type="checkbox" formControlName="passion" />
-    </div>
-    <div>
+
+
+
+
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="4">
+            <ion-card>
+              <ion-button fill="clear">
+                <ion-icon name="image"></ion-icon>
+                <ion-label>Love</ion-label>
+              </ion-button>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4">
+            <ion-card>
+              <ion-button fill="clear">
+                <ion-icon name="image"></ion-icon>
+                <ion-label>On Verra</ion-label>
+              </ion-button>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4">
+            <ion-card>
+              <ion-button fill="clear">
+                <ion-icon name="image"></ion-icon>
+                <ion-label>Sans prise de tete</ion-label>
+              </ion-button>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">
+            <ion-card>
+              <ion-button fill="clear">
+                <ion-icon name="image"></ion-icon>
+                <ion-label>Bon temps </ion-label>
+              </ion-button>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4">
+            <ion-card>
+              <ion-button fill="clear">
+                <ion-icon name="image"></ion-icon>
+                <ion-label>Amis</ion-label>
+              </ion-button>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4">
+            <ion-card>
+              <ion-button fill="clear">
+                <ion-icon name="image"></ion-icon>
+                <ion-label>Aucune idée</ion-label>
+              </ion-button>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="4">
+            <ion-chip (click)="toggleSelection('Sport')" [ngClass]="{'passion-chip-selected': isChipSelected('Sport')}">
+              <ion-label>Sport</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col size="4">
+            <ion-chip (click)="toggleSelection('Musique')" [ngClass]="{'passion-chip-selected': isChipSelected('Musique')}">
+              <ion-label>Musique</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col size="4">
+            <ion-chip (click)="toggleSelection('Voyages')" [ngClass]="{'passion-chip-selected': isChipSelected('Voyages')}">
+              <ion-label>Voyages</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+
+
+
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <ion-card >
+              <ion-card-content class="ion-text-center">
+                <ion-button fill="clear" color="secondary">
+                  <ion-icon name="add"></ion-icon>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4">
+            <ion-card >
+              <ion-card-content class="ion-text-center">
+                <ion-button fill="clear" color="secondary">
+                  <ion-icon name="add"></ion-icon>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4">
+            <ion-card >
+              <ion-card-content class="ion-text-center">
+                <ion-button fill="clear" color="secondary">
+                  <ion-icon name="add"></ion-icon>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">
+            <ion-card >
+              <ion-card-content class="ion-text-center">
+                <ion-button fill="clear" color="secondary">
+                  <ion-icon name="add"></ion-icon>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4">
+            <ion-card >
+              <ion-card-content class="ion-text-center">
+                <ion-button fill="clear" color="secondary">
+                  <ion-icon name="add"></ion-icon>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="4">
+            <ion-card >
+              <ion-card-content class="ion-text-center">
+                <ion-button fill="clear" color="secondary">
+                  <ion-icon name="add"></ion-icon>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    <!-- <div>
       <label for="imgprofil">photo</label>
       <input type="image" formControlName="photo" />
-    </div>
+    </div> -->
     <button (click)="validateForm()">Validate</button>
   </form>
 </ion-content>
