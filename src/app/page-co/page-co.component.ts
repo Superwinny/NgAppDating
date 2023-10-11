@@ -12,6 +12,7 @@ export class PageCoComponent {
   title = 'NgAppDating';
   userCreds!: UserCredential | null;
   CurrentUser = this.authService.currentUser
+  formulaireRempli: boolean = false;
 
   constructor(
       private readonly authService: AuthService,
@@ -24,9 +25,11 @@ export class PageCoComponent {
     switch (true) {
       case type === 'singin':
         this.userCreds = await this.authService.signinWithGoogle();
-
-        // faire une condition voir si le user a deja rempli le formulaire si oui direction page apllication
-        this.router.navigateByUrl('/formulaire')
+        if (this.formulaireRempli) {
+          this.router.navigateByUrl('/page-app');
+        } else {
+          this.router.navigateByUrl('/formulaire');
+        }
         break;
       case type === 'singout':
         await this.authService.singOut();
