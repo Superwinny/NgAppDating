@@ -13,7 +13,6 @@ import { firstValueFrom } from 'rxjs';
   encapsulation: ViewEncapsulation.None,
 })
 export class FormulairesComponent {
-  selectedPassions: string[] = [];
   selectedOption: string = '';
 
     form: FormGroup = new FormGroup({
