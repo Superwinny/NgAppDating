@@ -61,18 +61,5 @@ export class FormulairesComponent {
       }
 
     }
-    toggleSelection(passion: string) {
-      if (this.selectedPassions.includes(passion)) {
-
-        this.selectedPassions = this.selectedPassions.filter(p => p !== passion);
-      } else if (this.selectedPassions.length < 5) {
-
-        this.selectedPassions.push(passion);
-      }
-    }
-
-    isChipSelected(passion: string): boolean {
-      return this.selectedPassions.includes(passion);
-    }
 
 }
