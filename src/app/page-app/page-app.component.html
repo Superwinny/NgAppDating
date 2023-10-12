@@ -17,7 +17,7 @@
 
 
 
-  <ion-card>
+  <ion-card *ngFor="let user of UserToLike | async">
     <ion-grid>
       <ion-row>
         <ion-col class="col-img">
@@ -31,7 +31,7 @@
     <ion-card-header>
       <ion-row>
         <ion-col>
-           <ion-card-title>Prenom</ion-card-title>
+           <ion-card-title>{{user.firstname}}</ion-card-title>
         </ion-col>
         <ion-col>
           <ion-icon name="logo-ionic" size="small"></ion-icon>
@@ -42,9 +42,9 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-icon name="logo-ionic" size="large"></ion-icon>
-      <ion-icon name="logo-ionic" size="large"></ion-icon>
-      <ion-icon name="logo-ionic" size="large"></ion-icon>
+      <ion-chip>{{user.passion}}</ion-chip>
+      <ion-chip>{{user.passion}}</ion-chip>
+      <ion-chip>{{user.passion}}</ion-chip>
     </ion-card-content>
   </ion-card>
 

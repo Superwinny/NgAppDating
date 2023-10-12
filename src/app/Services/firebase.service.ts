@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { user } from '@angular/fire/auth';
 import { Firestore, query, collectionData} from '@angular/fire/firestore';
 import { getDownloadURL, ref, Storage } from '@angular/fire/storage';
-import { collection, deleteDoc, doc, setDoc, updateDoc } from 'firebase/firestore';
+import { collection, deleteDoc, doc, setDoc, updateDoc,UpdateData,  } from 'firebase/firestore';
 import { uploadBytes } from 'firebase/storage';
 
 @Injectable({
@@ -17,13 +17,19 @@ export class FirebaseService {
     private readonly _storage: Storage,
   ) { }
 
+  UserArrayLike(id: string){
+    const refCollection = collection(this._fireStore,'userlike');
+    const q = query(refCollection,); // voir la documentation firebase pour la syntax des filtres !!!!!!
+    const data = collectionData(q, {idField:'id'});
+    return data as any;
+  }
+  loadUserToLike(){
+    const refCollection = collection(this._fireStore,'user');
+    const q = query(refCollection,); // voir la documentation firebase pour la syntax des filtres !!!!!!
+    const data = collectionData(q, {idField:'id'});
+    return data as any;
 
-  // loadData(){
-  //   const refCollection = collection(this._fireStore, this.databaseName);
-  //   const q = query(refCollection);
-  //   const data = collectionData(q, {idField:'id'});
-  //   return data;
-  // }
+  }
 
    async addDataUser(data:any , userid: any){
 
@@ -34,7 +40,7 @@ export class FirebaseService {
      async addDataUserLike(data:any , userid: any){
 
      const docRef = doc(this._fireStore, 'userlike' + '/' + userid);
-     await setDoc(docRef, data)
+     await setDoc(docRef, data) // setDoc a changé !!!! voir la doc
    }
 
 

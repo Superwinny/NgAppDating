@@ -53,12 +53,12 @@ export class FormulairesComponent {
   async validateForm() {
       const user = await firstValueFrom(this._auth.currentUser);
       if(user?.uid){
-
         this._fireStore.addDataUser(this.form.value,user.uid)
         console.log(this.form.value);
          this.router.navigate(['/pageapp']);
       }
 
     }
+
 
 }
