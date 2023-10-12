@@ -27,7 +27,7 @@ export class PageCoComponent {
       case 'singin':
         this.userCreds = await this.authService.signinWithGoogle();
 
-
+        this.router.navigateByUrl('/formulaire');
         break;
       case 'singout':
         await this.authService.singOut();
@@ -58,17 +58,6 @@ export class PageCoComponent {
 //      private readonly router: Router)
 //       {}
 
-//       CanActivateFn(
-//     next: ActivatedRouteSnapshot,
-//     state: RouterStateSnapshot
-//   ): boolean {
-//     if (this.authService.isUserLoggedInWithGoogle()) {
-//       return true;
-//     } else {
-//       this.router.navigate(['/page-app']);
-//       return false;
-//     }
-//   }
 
 //   async actions(type: string, payload?: any) {
 //     switch (type) {
@@ -77,8 +66,9 @@ export class PageCoComponent {
 
 //         if (this.formulaireRempli) {
 //           this.router.navigateByUrl('/page-app');
+              // return false
 //         } else {
-//           this.router.navigateByUrl('/formulaire');
+//          return true
 //         }
 //         break;
 //       case 'singout':
