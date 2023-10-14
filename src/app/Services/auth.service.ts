@@ -26,7 +26,7 @@ export class AuthService {
     await signOut(this._auth);
   }
 
-  hasFilledForm(): boolean {
-    return this.userState.hasFilledForm;
-  }
+  // hasFilledForm(): boolean {
+  //   return this.userState.hasFilledForm;
+  // }
 }
