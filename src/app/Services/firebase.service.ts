@@ -4,12 +4,13 @@ import { Firestore, query, collectionData} from '@angular/fire/firestore';
 import { getDownloadURL, ref, Storage } from '@angular/fire/storage';
 import { collection, deleteDoc, doc, setDoc, updateDoc,UpdateData, where, addDoc,  } from 'firebase/firestore';
 import { uploadBytes } from 'firebase/storage';
+import { Camera, CameraResultType } from '@capacitor/camera';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-
+  imageUrl!: string;
   databaseName: string = 'ngappdating'
 
   constructor(
@@ -42,8 +43,21 @@ export class FirebaseService {
     await addDoc(userLikeCollection, data);
 }
 
+async  takePicture(){
+  const image = await Camera.getPhoto({
+    quality: 90,
+    allowEditing: true,
+    resultType: CameraResultType.Uri
+  });
+  if(image.webPath){
+    this.imageUrl = image.webPath;
 
-   async upload(file: File){
+  }else{
+    throw new Error('take picture fail.')
+  }
+};
+
+  private async  _upload(file: File){
 
      const fileRef = ref(
        this._storage,
@@ -55,6 +69,28 @@ export class FirebaseService {
      console.log(url);
 
    }
+  //  async takePictureAndUpload(){
+  //   const blobUrl = await this.takePicture();
+
+  //   if (blobUrl) {
+  //       const blob = await fetch(blobUrl).then(r => r.blob());
+  //       const url = await this._upload(blob);
+  //       this.imageUrl = url;
+  //   } else {
+  //       // Gérer le cas où this.takePicture() ne renvoie pas d'URL valide.
+  //       console.error("L'URL de l'image est invalide.");
+  //   }
+  // }
+
+  // async takePictureAndUpload(){
+  //   const blobUrl = await this.takePicture();
+
+  //   const blob = await fetch(blobUrl).then(r => r.blob())
+  //   const url = await this._upload(blob)
+  //   this.imageUrl = url;
+  // }
+
+
 }
 
 
