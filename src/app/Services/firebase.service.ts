@@ -24,9 +24,9 @@ export class FirebaseService {
     return data as any;
   }
   loadUserToLike(){
-    const refCollection = collection(this._fireStore,'user');
-    const q = query(refCollection, where('id', '==', ''));
-    const data = collectionData(q, {idField:'id'});
+    const refCollection = collection(this._fireStore, 'user');
+    const q = query(refCollection, where('isConnected', '==', true));
+    const data = collectionData(q, { idField: 'id' });
     return data as any;
 
   }
