@@ -69,26 +69,15 @@ async  takePicture(){
      console.log(url);
 
    }
+
+
   //  async takePictureAndUpload(){
-  //   const blobUrl = await this.takePicture();
+  //    const blobUrl = await this.takePicture();
 
-  //   if (blobUrl) {
-  //       const blob = await fetch(blobUrl).then(r => r.blob());
-  //       const url = await this._upload(blob);
-  //       this.imageUrl = url;
-  //   } else {
-  //       // Gérer le cas où this.takePicture() ne renvoie pas d'URL valide.
-  //       console.error("L'URL de l'image est invalide.");
-  //   }
-  // }
-
-  // async takePictureAndUpload(){
-  //   const blobUrl = await this.takePicture();
-
-  //   const blob = await fetch(blobUrl).then(r => r.blob())
-  //   const url = await this._upload(blob)
-  //   this.imageUrl = url;
-  // }
+  //    const blob = await fetch(blobUrl).then(r => r.blob())
+  //    const url = await this._upload(blob)
+  //    this.imageUrl = url;
+  //  }
 
 
 }
