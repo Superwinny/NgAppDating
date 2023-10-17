@@ -74,15 +74,35 @@ async  takePicture(){
    }
 
 
-    async takePictureAndUpload(){
+   async takePictureAndUpload() {
+    try {
       const blobUrl = await this.takePicture();
+      const blob = await fetch(blobUrl).then((r) => r.blob());
+      const url = await this._upload(blob);
+      console.log('Image URL:', url); // Vérifiez l'URL de l'image
+      return url; // Retournez l'URL de l'image pour l'utiliser ultérieurement
+    } catch (error) {
+      console.error('Erreur lors de la prise de la photo et de son téléchargement :', error);
+      throw error; // Propagez l'erreur pour qu'elle puisse être gérée dans le composant
+    }
+  }
+  async getUserImages(userId: string): Promise<string[]> {
+    const images: string[] = [];
 
-      const blob = await fetch(blobUrl).then(r => r.blob())
-      const url = await this._upload(blob)
-      this.imageUrl = url;
+    for (let i = 1; i <= 6; i++) {
+      try {
+        const imageRef = ref(this._storage, `ngappdating/${userId}/image${i}.jpg`);
+        const imageUrl = await getDownloadURL(imageRef);
+        images.push(imageUrl);
+      } catch (error) {
+    ;
+      }
     }
 
-
+    return images;
+  }
 }
+
+
 
 

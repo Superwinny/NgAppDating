@@ -18,6 +18,7 @@ export class FormulairesComponent {
   selectedLookingFor: string = '';
   selectedPassion: string[] = [];
   selectedPassionsCount: number = 0;
+  uploadedImageUrls: (string | null)[] = [null, null, null, null, null, null];
 
   form: FormGroup = new FormGroup({
     firstname: new FormControl('', Validators.compose([Validators.required])),
@@ -38,17 +39,22 @@ export class FormulairesComponent {
   async validateForm() {
     const user = await firstValueFrom(this._auth.currentUser);
     if (user?.uid) {
-      const formData = { ...this.form.value, passions: this.selectedPassion }; // Ajoutez les passions à formData
-      this._fireStore.addDataUser(formData, user.uid); // Enregistrez formData dans Firebase
+      const formData = { ...this.form.value, passions: this.selectedPassion, photos: this.uploadedImageUrls };
+      this._fireStore.addDataUser(formData, user.uid);
       console.log(formData);
       this.router.navigate(['/pageapp']);
     }
   }
 
-  async takepicture() {
-    this._fireStore.takePictureAndUpload();
+  async takePicture(index: number) {
+    try {
+      const imageUrl = await this._fireStore.takePictureAndUpload();
+      console.log('Image URL:', imageUrl);
+      this.uploadedImageUrls[index] = imageUrl;
+    } catch (error) {
+      console.error('Erreur lors de la prise de la photo et de son téléchargement :', error);
+    }
   }
-
 
   setGender(gender: string) {
     this.selectedOption = gender;

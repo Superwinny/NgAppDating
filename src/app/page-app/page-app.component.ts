@@ -9,7 +9,7 @@ import { firstValueFrom } from 'rxjs';
   styleUrls: ['./page-app.component.scss']
 })
 export class PageAppComponent {
-
+  userImages: string[] = [];
   UserToLike = this._firestore.loadUserToLike()
   UserArrayLike!: any;
 constructor(

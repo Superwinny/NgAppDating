@@ -356,67 +356,20 @@
 </ion-grid>
 
 
-
-      <ion-grid>
-        <ion-row>
-          <ion-col size="4">
-            <ion-card >
-              <ion-card-content class="ion-text-center">
-                <ion-button fill="clear" color="secondary" (click)="takepicture()">
-                  <ion-icon name="add"></ion-icon>
-                </ion-button>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4">
-            <ion-card >
-              <ion-card-content class="ion-text-center">
-                <ion-button fill="clear" color="secondary">
-                  <ion-icon name="add"></ion-icon>
-                </ion-button>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4">
-            <ion-card >
-              <ion-card-content class="ion-text-center">
-                <ion-button fill="clear" color="secondary">
-                  <ion-icon name="add"></ion-icon>
-                </ion-button>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="4">
-            <ion-card >
-              <ion-card-content class="ion-text-center">
-                <ion-button fill="clear" color="secondary">
-                  <ion-icon name="add"></ion-icon>
-                </ion-button>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4">
-            <ion-card >
-              <ion-card-content class="ion-text-center">
-                <ion-button fill="clear" color="secondary">
-                  <ion-icon name="add"></ion-icon>
-                </ion-button>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4">
-            <ion-card >
-              <ion-card-content class="ion-text-center">
-                <ion-button fill="clear" color="secondary">
-                  <ion-icon name="add"></ion-icon>
-                </ion-button>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+<ion-grid>
+  <ion-row>
+    <ion-col size="4" *ngFor="let imageUrl of uploadedImageUrls; let i = index">
+      <ion-card>
+        <ion-card-content class="ion-text-center">
+          <ion-button fill="clear" color="secondary" (click)="takePicture(i)">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+          <img *ngIf="imageUrl" [src]="imageUrl" alt="Image {{i + 1}}" width="100" height="100" />
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
     <button (click)="validateForm()">Validate</button>
   </form>
