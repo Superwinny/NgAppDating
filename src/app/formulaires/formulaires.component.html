@@ -1,8 +1,7 @@
 <ion-content>
   <h1>Form</h1>
   <form [formGroup]="form">
-
-
+    <!-- Étape 1: Prénom -->
     <div>
       <ion-row>
         <h1>C'est quoi ton prénom</h1>
@@ -13,15 +12,15 @@
           <ion-input type="text" labelPlacement="floating" placeholder="Saisi ton prénom"
             formControlName="firstname"></ion-input>
         </ion-row>
-
       </ion-item>
-      <!-- <input type="text" formControlName="firstname" /> -->
+      <ion-grid class="ion-no-padding">
+      </ion-grid>
     </div>
 
-
+    <!-- Étape 2: Date de naissance -->
     <div>
       <label for="birthday">birthday</label>
-      <ion-datetime-button datetime="datetime" ></ion-datetime-button>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
 
       <ion-modal [keepContentsMounted]="true">
         <ng-template>
@@ -29,10 +28,12 @@
         </ng-template>
       </ion-modal>
 
-
+      <ion-grid class="ion-no-padding">
+      </ion-grid>
     </div>
+
+    <!-- Étape 3: Genre -->
     <ion-grid class="ion-no-padding">
-      <!-- Genre -->
       <ion-row class="ion-align-items-center ion-justify-content-center">
         <ion-col size="4">
           <ion-label></ion-label>
@@ -48,15 +49,13 @@
         </ion-col>
       </ion-row>
       <ion-row class="ion-align-items-center ion-justify-content-center">
-        <ion-col size="4">
-          <ion-label></ion-label>
-          <ion-button (click)="setGender('Autre')"
-                      [color]="selectedOption === 'Autre' ? 'primary' : 'medium'">Autre</ion-button>
+        <ion-col>
+          <ion-button (click)="validateForm()" [disabled]="isButtonDisabled()">Suivant</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
 
-    <!-- Genre de la personne à rencontrer -->
+    <!-- Étape 4: Genre de la personne à rencontrer -->
     <ion-grid class="ion-no-padding">
       <ion-row class="ion-align-items-center ion-justify-content-center">
         <ion-col size="4">
@@ -72,15 +71,21 @@
                       [color]="selectedLookingFor === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
         </ion-col>
       </ion-row>
+
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col>
+          <ion-button (click)="validateForm()" [disabled]="isButtonDisabled()">Suivant</ion-button>
+        </ion-col>
+      </ion-row>
     </ion-grid>
 
-    <!-- Type de relation -->
+    <!-- Étape 5: Type de relation -->
     <ion-grid class="ion-no-padding">
       <ion-row class="ion-align-items-center ion-justify-content-center">
         <ion-col size="4">
           <ion-label></ion-label>
           <ion-button (click)="setDesire('Relation Serieuse')"
-                      [color]="selectedDesire === 'Relation' ? 'primary' : 'medium'">Relation Serieuse</ion-button>
+                      [color]="selectedDesire === 'Relation Serieuse' ? 'primary' : 'medium'">Relation Serieuse</ion-button>
         </ion-col>
       </ion-row>
       <ion-row class="ion-align-items-center ion-justify-content-center">
@@ -97,29 +102,77 @@
                       [color]="selectedDesire === 'Sans prise de tete' ? 'primary' : 'medium'">Sans prise de tete</ion-button>
         </ion-col>
       </ion-row>
+
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col>
+          <ion-button (click)="validateForm()" [disabled]="isButtonDisabled()">Suivant</ion-button>
+        </ion-col>
+      </ion-row>
     </ion-grid>
 
-      <ion-grid class="ion-no-padding">
-        <ion-row>
-          <ion-col size="4">
-            <ion-chip >
-              <ion-label>Sport</ion-label>
-            </ion-chip>
-          </ion-col>
-          <ion-col size="4">
-            <ion-chip >
-              <ion-label>Musique</ion-label>
-            </ion-chip>
-          </ion-col>
-          <ion-col size="4">
-            <ion-chip >
-              <ion-label>Voyages</ion-label>
-            </ion-chip>
-          </ion-col>
-        </ion-row>
 
-      </ion-grid>
 
+<!-- Étape 6: Passion -->
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col size="4">
+      <ion-chip
+        (click)="togglePassion('Sport')"
+        [color]="isPassionSelected('Sport') ? 'primary' : 'medium'"
+      >
+        <ion-label>Sport</ion-label>
+      </ion-chip>
+    </ion-col>
+    <ion-col size="4">
+      <ion-chip
+        (click)="togglePassion('Musique')"
+        [color]="isPassionSelected('Musique') ? 'primary' : 'medium'"
+      >
+        <ion-label>Musique</ion-label>
+      </ion-chip>
+    </ion-col>
+    <ion-col size="4">
+      <ion-chip
+        (click)="togglePassion('Restaurant')"
+        [color]="isPassionSelected('Restaurant') ? 'primary' : 'medium'"
+      >
+        <ion-label>Restaurant</ion-label>
+      </ion-chip>
+    </ion-col>
+    <ion-col size="4">
+      <ion-chip
+        (click)="togglePassion('Cinéma')"
+        [color]="isPassionSelected('Cinéma') ? 'primary' : 'medium'"
+      >
+        <ion-label>Cinéma</ion-label>
+      </ion-chip>
+    </ion-col>
+    <ion-col size="4">
+      <ion-chip
+        (click)="togglePassion('Série')"
+        [color]="isPassionSelected('Série') ? 'primary' : 'medium'"
+      >
+        <ion-label>Série</ion-label>
+      </ion-chip>
+    </ion-col>
+    <ion-col size="4">
+      <ion-chip
+        (click)="togglePassion('Fitness')"
+        [color]="isPassionSelected('Fitness') ? 'primary' : 'medium'"
+      >
+        <ion-label>Voyages</ion-label>
+      </ion-chip>
+    </ion-col>
+    <ion-col size="4">
+      <ion-chip
+        (click)="togglePassion('Yoga')"
+        [color]="isPassionSelected('Yoga') ? 'primary' : 'medium'"
+      >
+        <ion-label>Voyages</ion-label>
+      </ion-chip>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
 
 

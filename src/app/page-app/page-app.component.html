@@ -42,9 +42,7 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-chip>{{user.passion}}</ion-chip>
-      <ion-chip>{{user.passion}}</ion-chip>
-      <ion-chip>{{user.passion}}</ion-chip>
+      <ion-chip *ngFor="let passion of user.passions">{{ passion }}</ion-chip>
     </ion-card-content>
   </ion-card>
 
@@ -53,9 +51,6 @@
     <ion-row>
       <ion-col>
         <ion-button>NO</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button>Super</ion-button>
       </ion-col>
       <ion-col>
         <ion-button>Yes</ion-button>

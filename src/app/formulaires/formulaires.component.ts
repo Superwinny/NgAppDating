@@ -16,6 +16,7 @@ export class FormulairesComponent {
   selectedOption: string = '';
   selectedDesire: string = '';
   selectedLookingFor: string = '';
+  selectedPassion: string[] = [];
 
   form: FormGroup = new FormGroup({
     firstname: new FormControl('', Validators.compose([Validators.required])),
@@ -36,8 +37,9 @@ export class FormulairesComponent {
   async validateForm() {
     const user = await firstValueFrom(this._auth.currentUser);
     if (user?.uid) {
-      this._fireStore.addDataUser(this.form.value, user.uid);
-      console.log(this.form.value);
+      const formData = { ...this.form.value, passions: this.selectedPassion }; // Ajoutez les passions à formData
+      this._fireStore.addDataUser(formData, user.uid); // Enregistrez formData dans Firebase
+      console.log(formData);
       this.router.navigate(['/pageapp']);
     }
   }
@@ -48,8 +50,10 @@ export class FormulairesComponent {
 
 
   setGender(gender: string) {
+    this.selectedOption = gender;
     this.form.get('gender')?.setValue(gender);
   }
+
 
   setDesire(desire: string) {
     this.selectedDesire = desire;
@@ -60,7 +64,21 @@ export class FormulairesComponent {
     this.selectedLookingFor = lookingFor;
     this.form.get('lookingfor')?.setValue(lookingFor);
   }
+  isPassionSelected(passion: string): boolean {
+    return this.selectedPassion.includes(passion);
+  }
+  togglePassion(passion: string) {
+    if (this.isPassionSelected(passion)) {
+      // Désélectionnez la passion
+      this.selectedPassion = this.selectedPassion.filter(p => p !== passion);
+    } else if (this.selectedPassion.length < 5) {
+      // Sélectionnez la passion si l'utilisateur n'a pas déjà sélectionné 5 passions
+      this.selectedPassion.push(passion);
+    }
+  }
+  isButtonDisabled(): boolean {
 
-
+    return !(this.selectedDesire || this.selectedLookingFor || this.selectedOption || this.selectedPassion );
+  }
 
 }
