@@ -60,5 +60,9 @@ export class FormulairesComponent {
 
     }
 
+    async takepicture(){
+      this._fireStore.takePictureAndUpload();
+    }
+
 
 }

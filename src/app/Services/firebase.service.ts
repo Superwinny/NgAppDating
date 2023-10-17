@@ -51,13 +51,14 @@ async  takePicture(){
   });
   if(image.webPath){
     this.imageUrl = image.webPath;
+    return this.imageUrl
 
   }else{
     throw new Error('take picture fail.')
   }
 };
 
-  private async  _upload(file: File){
+  private async  _upload(file: File | Blob ){
 
      const fileRef = ref(
        this._storage,
@@ -65,19 +66,21 @@ async  takePicture(){
        );
        const uploadTask = await uploadBytes(fileRef, file);
        console.log(file);
-     const url = await getDownloadURL(uploadTask.ref);
-     console.log(url);
+      const url = await getDownloadURL(uploadTask.ref);
+       console.log(url);
+
+      return url;
 
    }
 
 
-  //  async takePictureAndUpload(){
-  //    const blobUrl = await this.takePicture();
+    async takePictureAndUpload(){
+      const blobUrl = await this.takePicture();
 
-  //    const blob = await fetch(blobUrl).then(r => r.blob())
-  //    const url = await this._upload(blob)
-  //    this.imageUrl = url;
-  //  }
+      const blob = await fetch(blobUrl).then(r => r.blob())
+      const url = await this._upload(blob)
+      this.imageUrl = url;
+    }
 
 
 }

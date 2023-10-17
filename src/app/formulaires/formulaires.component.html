@@ -21,7 +21,7 @@
 
     <div>
       <label for="birthday">birthday</label>
-      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-datetime-button datetime="datetime" formControlName="birthday"></ion-datetime-button>
 
       <ion-modal [keepContentsMounted]="true">
         <ng-template>
@@ -29,29 +29,10 @@
         </ng-template>
       </ion-modal>
 
-      <!-- //<input type="date"  /> -->
+
     </div>
 
-
-
-    <!-- <div>
-      <ion-list>
-        <ion-item>
-          <label for="gender"></label>
-          <ion-select formControlName="gender" aria-label="Fruit" interface="action-sheet" placeholder="Ton genre">
-            <ion-select-option value="homme">Homme</ion-select-option>
-            <ion-select-option value="femme">Femme</ion-select-option>
-            <ion-select-option value="nonbinaire">Non Binaire</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
-
-    </div> -->
-
-
-
-
-
+<!-- //faire une fonction pour mettre a jour le champ du formulaire avec le genre choisit  -->
       <ion-grid class="ion-no-padding">
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
@@ -80,6 +61,7 @@
 
 
 
+<!-- //faire une fonction pour mettre a jour le champ du formulaire avec le genre choisit  -->
 
 
       <ion-grid class="ion-no-padding">
@@ -187,7 +169,7 @@
           <ion-col size="4">
             <ion-card >
               <ion-card-content class="ion-text-center">
-                <ion-button fill="clear" color="secondary">
+                <ion-button fill="clear" color="secondary" (click)="takepicture()">
                   <ion-icon name="add"></ion-icon>
                 </ion-button>
               </ion-card-content>
@@ -242,10 +224,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-    <!-- <div>
-      <label for="imgprofil">photo</label>
-      <input type="image" formControlName="photo" />
-    </div> -->
+
     <button (click)="validateForm()">Validate</button>
   </form>
 </ion-content>
