@@ -21,7 +21,7 @@
 
     <div>
       <label for="birthday">birthday</label>
-      <ion-datetime-button datetime="datetime" formControlName="birthday"></ion-datetime-button>
+      <ion-datetime-button datetime="datetime" ></ion-datetime-button>
 
       <ion-modal [keepContentsMounted]="true">
         <ng-template>
@@ -31,114 +31,73 @@
 
 
     </div>
-
-<!-- //faire une fonction pour mettre a jour le champ du formulaire avec le genre choisit  -->
-      <ion-grid class="ion-no-padding">
-        <ion-row class="ion-align-items-center ion-justify-content-center">
-          <ion-col size="4">
-            <ion-button >Homme</ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-row class="ion-align-items-center ion-justify-content-center">
-          <ion-col size="4">
-            <ion-button >Femme</ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-row class="ion-align-items-center ion-justify-content-center">
-          <ion-col size="4">
-            <ion-button >Autre</ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-row class="ion-align-items-center ion-justify-content-center">
-          <ion-col>
-            <ion-button >Suivant</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-
-
-
-
-
-<!-- //faire une fonction pour mettre a jour le champ du formulaire avec le genre choisit  -->
-
-
-      <ion-grid class="ion-no-padding">
-
-        <ion-row class="ion-align-items-center ion-justify-content-center">
-          <ion-col size="4">
-            <ion-button >Homme</ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-row class="ion-align-items-center ion-justify-content-center">
-          <ion-col size="4">
-            <ion-button >Femme</ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-col>
-          <ion-button >Suivant</ion-button>
+    <ion-grid class="ion-no-padding">
+      <!-- Genre -->
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="4">
+          <ion-label></ion-label>
+          <ion-button (click)="setGender('Homme')"
+                      [color]="selectedOption === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
         </ion-col>
-      </ion-grid>
+      </ion-row>
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="4">
+          <ion-label></ion-label>
+          <ion-button (click)="setGender('Femme')"
+                      [color]="selectedOption === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="4">
+          <ion-label></ion-label>
+          <ion-button (click)="setGender('Autre')"
+                      [color]="selectedOption === 'Autre' ? 'primary' : 'medium'">Autre</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
+    <!-- Genre de la personne à rencontrer -->
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="4">
+          <ion-label></ion-label>
+          <ion-button (click)="setLookingFor('Homme')"
+                      [color]="selectedLookingFor === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="4">
+          <ion-label></ion-label>
+          <ion-button (click)="setLookingFor('Femme')"
+                      [color]="selectedLookingFor === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-
-
-
-      <ion-grid class="ion-no-padding">
-        <ion-row>
-          <ion-col size="4">
-            <ion-card>
-              <ion-button fill="clear">
-                <ion-icon name="image"></ion-icon>
-                <ion-label>Love</ion-label>
-              </ion-button>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4">
-            <ion-card>
-              <ion-button fill="clear">
-                <ion-icon name="image"></ion-icon>
-                <ion-label>On Verra</ion-label>
-              </ion-button>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4">
-            <ion-card>
-              <ion-button fill="clear">
-                <ion-icon name="image"></ion-icon>
-                <ion-label>Sans prise de tete</ion-label>
-              </ion-button>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="4">
-            <ion-card>
-              <ion-button fill="clear">
-                <ion-icon name="image"></ion-icon>
-                <ion-label>Bon temps </ion-label>
-              </ion-button>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4">
-            <ion-card>
-              <ion-button fill="clear">
-                <ion-icon name="image"></ion-icon>
-                <ion-label>Amis</ion-label>
-              </ion-button>
-            </ion-card>
-          </ion-col>
-          <ion-col size="4">
-            <ion-card>
-              <ion-button fill="clear">
-                <ion-icon name="image"></ion-icon>
-                <ion-label>Aucune idée</ion-label>
-              </ion-button>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+    <!-- Type de relation -->
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="4">
+          <ion-label></ion-label>
+          <ion-button (click)="setDesire('Relation Serieuse')"
+                      [color]="selectedDesire === 'Relation' ? 'primary' : 'medium'">Relation Serieuse</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="4">
+          <ion-label></ion-label>
+          <ion-button (click)="setDesire('Amis')"
+                      [color]="selectedDesire === 'Amis' ? 'primary' : 'medium'">Amis</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="4">
+          <ion-label></ion-label>
+          <ion-button (click)="setDesire('Sans prise de tete')"
+                      [color]="selectedDesire === 'Sans prise de tete' ? 'primary' : 'medium'">Sans prise de tete</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
       <ion-grid class="ion-no-padding">
         <ion-row>
