@@ -63,6 +63,9 @@ export class FormulairesComponent {
     async takepicture(){
       this._fireStore.takePictureAndUpload();
     }
+    onSubmitForm(formData: any) {
 
+      this._auth.markFormAsFilled();
 
+}
 }

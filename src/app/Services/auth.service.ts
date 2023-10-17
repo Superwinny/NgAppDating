@@ -7,7 +7,7 @@ import { Auth, GoogleAuthProvider,authState,signInWithPopup, signOut } from '@an
 export class AuthService {
 
   currentUser = authState(this._auth as any)
-   private userState = { // mettre a jour automatique le state de user 
+   private userState = {
      hasFilledForm: false,
    };
   constructor(
@@ -27,8 +27,9 @@ export class AuthService {
   }
 
   hasFilledForm(): boolean {
-
-    //mettre logique objet enregistré dans la collection user
     return this.userState.hasFilledForm;
+  }
+  markFormAsFilled() {
+    this.userState.hasFilledForm = true;
   }
 }
