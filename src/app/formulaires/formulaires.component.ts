@@ -17,6 +17,7 @@ export class FormulairesComponent {
   selectedDesire: string = '';
   selectedLookingFor: string = '';
   selectedPassion: string[] = [];
+  selectedPassionsCount: number = 0;
 
   form: FormGroup = new FormGroup({
     firstname: new FormControl('', Validators.compose([Validators.required])),
@@ -68,14 +69,19 @@ export class FormulairesComponent {
     return this.selectedPassion.includes(passion);
   }
   togglePassion(passion: string) {
-    if (this.isPassionSelected(passion)) {
-      // Désélectionnez la passion
-      this.selectedPassion = this.selectedPassion.filter(p => p !== passion);
-    } else if (this.selectedPassion.length < 5) {
-      // Sélectionnez la passion si l'utilisateur n'a pas déjà sélectionné 5 passions
+  const index = this.selectedPassion.indexOf(passion);
+
+  if (index === -1) {
+    if (this.selectedPassionsCount < 5) {
       this.selectedPassion.push(passion);
+      this.selectedPassionsCount++;
     }
+  } else {
+    this.selectedPassion.splice(index, 1);
+    this.selectedPassionsCount--;
   }
+}
+
   isButtonDisabled(): boolean {
 
     return !(this.selectedDesire || this.selectedLookingFor || this.selectedOption || this.selectedPassion );
