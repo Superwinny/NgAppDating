@@ -72,7 +72,7 @@ export class FormulairesComponent {
   const index = this.selectedPassion.indexOf(passion);
 
   if (index === -1) {
-    if (this.selectedPassionsCount < 5) {
+    if (this.selectedPassionsCount < 7) {
       this.selectedPassion.push(passion);
       this.selectedPassionsCount++;
     }
