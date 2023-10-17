@@ -86,21 +86,8 @@ async  takePicture(){
       throw error; // Propagez l'erreur pour qu'elle puisse être gérée dans le composant
     }
   }
-  async getUserImages(userId: string): Promise<string[]> {
-    const images: string[] = [];
 
-    for (let i = 1; i <= 6; i++) {
-      try {
-        const imageRef = ref(this._storage, `ngappdating/${userId}/image${i}.jpg`);
-        const imageUrl = await getDownloadURL(imageRef);
-        images.push(imageUrl);
-      } catch (error) {
-    ;
-      }
-    }
 
-    return images;
-  }
 }
 
 
