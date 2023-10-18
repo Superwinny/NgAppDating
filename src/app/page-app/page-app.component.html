@@ -18,16 +18,21 @@
 
 
   <ion-card *ngFor="let user of UserToLike | async">
+
+
     <ion-grid>
       <ion-row>
         <ion-col class="col-img">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-
+          <ion-card *ngFor="let imageUrl of userImages">
+            <img [src]="imageUrl" alt="User Image" />
+          </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>
+
+
+
+
     <ion-card-header>
       <ion-row>
         <ion-col>

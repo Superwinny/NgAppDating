@@ -9,7 +9,7 @@ import { firstValueFrom } from 'rxjs';
   styleUrls: ['./page-app.component.scss']
 })
 export class PageAppComponent {
-  userImages: string[] = [];
+  userImages: string[]|null = [];
   UserToLike = this._firestore.loadUserToLike()
   UserArrayLike!: any;
 constructor(
@@ -21,8 +21,12 @@ constructor(
 }
 
 async Init(){
-  const user = await firstValueFrom(this._authservice.currentUser) ;
-this.UserArrayLike = this._firestore.UserArrayLike(user?.uid + '')
+  const user = await firstValueFrom(this._authservice.currentUser);
+  if (user?.uid) {
+    this.UserArrayLike = this._firestore.UserArrayLike(user.uid);
+    // this.userImages = await this._firestore.getProfileImageURL();
+    // console.log(this.userImages);
+  }
 }
 
 }

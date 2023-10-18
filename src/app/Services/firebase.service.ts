@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
-import { user } from '@angular/fire/auth';
+import { User } from '@angular/fire/auth';
 import { Firestore, query, collectionData} from '@angular/fire/firestore';
 import { getDownloadURL, ref, Storage } from '@angular/fire/storage';
-import { collection, deleteDoc, doc, setDoc, updateDoc,UpdateData, where, addDoc,  } from 'firebase/firestore';
+import { collection, doc, setDoc, where, addDoc, getDoc} from 'firebase/firestore';
 import { uploadBytes } from 'firebase/storage';
 import { Camera, CameraResultType } from '@capacitor/camera';
+import { firstValueFrom } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-  imageUrl!: string;
+  imageUrl!: string ;
   databaseName: string = 'ngappdating'
 
   constructor(
     private readonly _fireStore: Firestore,
     private readonly _storage: Storage,
+    private readonly _auth: AuthService,
   ) { }
 
   UserArrayLike(id: string){
@@ -86,10 +89,23 @@ async  takePicture(){
       throw error; // Propagez l'erreur pour qu'elle puisse être gérée dans le composant
     }
   }
+  // async getProfileImageURL(): Promise<string[]> {
+  //   const user = (await firstValueFrom(this._auth.currentUser)) as User;
+  //   if (!user) {
+  //     throw new Error('User is not logged in.');
+  //   }
 
+  //   const userProfileDoc = doc(this._fireStore, 'user', user.uid);
+  //   const userProfileData = await getDoc(userProfileDoc);
 
+  //   if (userProfileData.exists()) {
+  //     const userData = userProfileData.data() as any;
+  //     return userData.photo || [];
+  //   } else {
+  //     throw new Error('User profile does not exist.');
+  //   }
+  // }
 }
-
 
 
 
