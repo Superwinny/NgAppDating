@@ -61,7 +61,7 @@ async  takePicture(){
   }
 };
 
-  private async  _upload(file: File | Blob ){
+  private async _upload(file: File | Blob ){
 
      const fileRef = ref(
        this._storage,
@@ -105,6 +105,38 @@ async  takePicture(){
   //     throw new Error('User profile does not exist.');
   //   }
   // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

@@ -18,18 +18,13 @@
     </div>
 
     <!-- Étape 2: Date de naissance -->
+
     <div>
-      <label for="birthday">birthday</label>
-      <ion-datetime-button datetime="datetime"></ion-datetime-button>
-
-      <ion-modal [keepContentsMounted]="true">
-        <ng-template>
-          <ion-datetime id="datetime"></ion-datetime>
-        </ng-template>
-      </ion-modal>
-
-      <ion-grid class="ion-no-padding">
-      </ion-grid>
+      <ion-item>
+        <ion-label position="stacked">Date de naissance</ion-label>
+        <ion-input type="text" placeholder="JJ/MM/AAAA" formControlName="birthday"></ion-input>
+      </ion-item>
+      <ion-button (click)="validateForm()">Validate birthday</ion-button>
     </div>
 
     <!-- Étape 3: Genre -->

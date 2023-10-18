@@ -9,7 +9,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { IonicModule } from '@ionic/angular';
 import { FormulairesComponent } from './formulaires/formulaires.component';
 import { PageCoComponent } from './page-co/page-co.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageAppComponent } from './page-app/page-app.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { provideFirestore } from '@angular/fire/firestore';
@@ -30,7 +30,8 @@ import { getFirestore } from 'firebase/firestore';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

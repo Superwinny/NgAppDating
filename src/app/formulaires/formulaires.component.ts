@@ -19,7 +19,7 @@ export class FormulairesComponent {
   selectedPassion: string[] = [];
   selectedPassionsCount: number = 0;
   uploadedImageUrls: (string | null)[] = [null, null, null, null, null, null];
-
+  birthday: string = '';
   form: FormGroup = new FormGroup({
     firstname: new FormControl('', Validators.compose([Validators.required])),
     birthday: new FormControl('', Validators.compose([Validators.required])),
@@ -92,5 +92,6 @@ export class FormulairesComponent {
 
     return !(this.selectedDesire || this.selectedLookingFor || this.selectedOption || this.selectedPassion );
   }
+
 
 }
