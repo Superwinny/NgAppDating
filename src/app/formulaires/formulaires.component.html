@@ -18,7 +18,6 @@
     </div>
 
     <!-- Étape 2: Date de naissance -->
-
     <div>
       <ion-item>
         <ion-label position="stacked">Date de naissance</ion-label>
@@ -33,14 +32,14 @@
         <ion-col size="4">
           <ion-label></ion-label>
           <ion-button (click)="setGender('Homme')"
-                      [color]="selectedOption === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
+            [color]="selectedOption === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
         </ion-col>
       </ion-row>
       <ion-row class="ion-align-items-center ion-justify-content-center">
         <ion-col size="4">
           <ion-label></ion-label>
           <ion-button (click)="setGender('Femme')"
-                      [color]="selectedOption === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
+            [color]="selectedOption === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
         </ion-col>
       </ion-row>
       <ion-row class="ion-align-items-center ion-justify-content-center">
@@ -56,14 +55,14 @@
         <ion-col size="4">
           <ion-label></ion-label>
           <ion-button (click)="setLookingFor('Homme')"
-                      [color]="selectedLookingFor === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
+            [color]="selectedLookingFor === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
         </ion-col>
       </ion-row>
       <ion-row class="ion-align-items-center ion-justify-content-center">
         <ion-col size="4">
           <ion-label></ion-label>
           <ion-button (click)="setLookingFor('Femme')"
-                      [color]="selectedLookingFor === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
+            [color]="selectedLookingFor === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
         </ion-col>
       </ion-row>
 
@@ -80,21 +79,21 @@
         <ion-col size="4">
           <ion-label></ion-label>
           <ion-button (click)="setDesire('Relation Serieuse')"
-                      [color]="selectedDesire === 'Relation Serieuse' ? 'primary' : 'medium'">Relation Serieuse</ion-button>
+            [color]="selectedDesire === 'Relation Serieuse' ? 'primary' : 'medium'">Relation Serieuse</ion-button>
         </ion-col>
       </ion-row>
       <ion-row class="ion-align-items-center ion-justify-content-center">
         <ion-col size="4">
           <ion-label></ion-label>
           <ion-button (click)="setDesire('Amis')"
-                      [color]="selectedDesire === 'Amis' ? 'primary' : 'medium'">Amis</ion-button>
+            [color]="selectedDesire === 'Amis' ? 'primary' : 'medium'">Amis</ion-button>
         </ion-col>
       </ion-row>
       <ion-row class="ion-align-items-center ion-justify-content-center">
         <ion-col size="4">
           <ion-label></ion-label>
           <ion-button (click)="setDesire('Sans prise de tete')"
-                      [color]="selectedDesire === 'Sans prise de tete' ? 'primary' : 'medium'">Sans prise de tete</ion-button>
+            [color]="selectedDesire === 'Sans prise de tete' ? 'primary' : 'medium'">Sans prise de tete</ion-button>
         </ion-col>
       </ion-row>
 
@@ -107,264 +106,192 @@
 
 
 
-<!-- Étape 6: Passion -->
-<ion-grid class="ion-no-padding">
-  <ion-row>
-    <ion-col size="12">
-      {{ selectedPassionsCount }} / 7
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Sport')"
-        [color]="isPassionSelected('Sport') ? 'primary' : 'medium'"
-      >
-        <ion-label>Sport</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Musique')"
-        [color]="isPassionSelected('Musique') ? 'primary' : 'medium'"
-      >
-        <ion-label>Musique</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Restaurant')"
-        [color]="isPassionSelected('Restaurant') ? 'primary' : 'medium'"
-      >
-        <ion-label>Restaurant</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Cinéma')"
-        [color]="isPassionSelected('Cinéma') ? 'primary' : 'medium'"
-      >
-        <ion-label>Cinéma</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Série')"
-        [color]="isPassionSelected('Série') ? 'primary' : 'medium'"
-      >
-        <ion-label>Série</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Fitness')"
-        [color]="isPassionSelected('Fitness') ? 'primary' : 'medium'"
-      >
-        <ion-label>Fitness</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Yoga')"
-        [color]="isPassionSelected('Yoga') ? 'primary' : 'medium'"
-      >
-        <ion-label>Yoga</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Foot')"
-        [color]="isPassionSelected('Foot') ? 'primary' : 'medium'"
-      >
-        <ion-label>Foot</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('CrossFit')"
-        [color]="isPassionSelected('CrossFit') ? 'primary' : 'medium'"
-      >
-        <ion-label>CrossFit</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Montagne')"
-        [color]="isPassionSelected('Montagne') ? 'primary' : 'medium'"
-      >
-        <ion-label>Montagne</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Plage')"
-        [color]="isPassionSelected('Plage') ? 'primary' : 'medium'"
-      >
-        <ion-label>Plage</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Chien')"
-        [color]="isPassionSelected('Chien') ? 'primary' : 'medium'"
-      >
-        <ion-label>Chien</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Chat')"
-        [color]="isPassionSelected('Chat') ? 'primary' : 'medium'"
-      >
-        <ion-label>Chat</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Jeux Vidéo')"
-        [color]="isPassionSelected('Jeux Vidéo') ? 'primary' : 'medium'"
-      >
-        <ion-label>Jeux Vidéo</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Cuisine')"
-        [color]="isPassionSelected('Cuisine') ? 'primary' : 'medium'"
-      >
-        <ion-label>Cuisine</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Danse')"
-        [color]="isPassionSelected('Danse') ? 'primary' : 'medium'"
-      >
-        <ion-label>Danse</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Twitch')"
-        [color]="isPassionSelected('Twitch') ? 'primary' : 'medium'"
-      >
-        <ion-label>Twitch</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Café')"
-        [color]="isPassionSelected('Café') ? 'primary' : 'medium'"
-      >
-        <ion-label>Café</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Thé')"
-        [color]="isPassionSelected('Thé') ? 'primary' : 'medium'"
-      >
-        <ion-label>Thé</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Street Food')"
-        [color]="isPassionSelected('Street Food') ? 'primary' : 'medium'"
-      >
-        <ion-label>Street Food</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Bière')"
-        [color]="isPassionSelected('Bière') ? 'primary' : 'medium'"
-      >
-        <ion-label>Bière</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Vin')"
-        [color]="isPassionSelected('Vin') ? 'primary' : 'medium'"
-      >
-        <ion-label>Vin</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Balade')"
-        [color]="isPassionSelected('Balade') ? 'primary' : 'medium'"
-      >
-        <ion-label>Balade</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Camping')"
-        [color]="isPassionSelected('Camping') ? 'primary' : 'medium'"
-      >
-        <ion-label>Camping</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Road Trip')"
-        [color]="isPassionSelected('Road Trip') ? 'primary' : 'medium'"
-      >
-        <ion-label>Road Trip</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Guitarre')"
-        [color]="isPassionSelected('Guitarre') ? 'primary' : 'medium'"
-      >
-        <ion-label>Guitarre</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Piano')"
-        [color]="isPassionSelected('Piano') ? 'primary' : 'medium'"
-      >
-        <ion-label>Piano</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Techno')"
-        [color]="isPassionSelected('Techno') ? 'primary' : 'medium'"
-      >
-        <ion-label>Techno</ion-label>
-      </ion-chip>
-    </ion-col>
-    <ion-col size="4">
-      <ion-chip
-        (click)="togglePassion('Rap')"
-        [color]="isPassionSelected('Rap') ? 'primary' : 'medium'"
-      >
-        <ion-label>Rap</ion-label>
-      </ion-chip>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+    <!-- Étape 6: Passion -->
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12">
+          {{ selectedPassionsCount }} / 7
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Sport')" [color]="isPassionSelected('Sport') ? 'primary' : 'medium'">
+            <ion-label>Sport</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Musique')" [color]="isPassionSelected('Musique') ? 'primary' : 'medium'">
+            <ion-label>Musique</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Restaurant')"
+            [color]="isPassionSelected('Restaurant') ? 'primary' : 'medium'">
+            <ion-label>Restaurant</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Cinéma')" [color]="isPassionSelected('Cinéma') ? 'primary' : 'medium'">
+            <ion-label>Cinéma</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Série')" [color]="isPassionSelected('Série') ? 'primary' : 'medium'">
+            <ion-label>Série</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Fitness')" [color]="isPassionSelected('Fitness') ? 'primary' : 'medium'">
+            <ion-label>Fitness</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Yoga')" [color]="isPassionSelected('Yoga') ? 'primary' : 'medium'">
+            <ion-label>Yoga</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Foot')" [color]="isPassionSelected('Foot') ? 'primary' : 'medium'">
+            <ion-label>Foot</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('CrossFit')" [color]="isPassionSelected('CrossFit') ? 'primary' : 'medium'">
+            <ion-label>CrossFit</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Montagne')" [color]="isPassionSelected('Montagne') ? 'primary' : 'medium'">
+            <ion-label>Montagne</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Plage')" [color]="isPassionSelected('Plage') ? 'primary' : 'medium'">
+            <ion-label>Plage</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Chien')" [color]="isPassionSelected('Chien') ? 'primary' : 'medium'">
+            <ion-label>Chien</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Chat')" [color]="isPassionSelected('Chat') ? 'primary' : 'medium'">
+            <ion-label>Chat</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Jeux Vidéo')"
+            [color]="isPassionSelected('Jeux Vidéo') ? 'primary' : 'medium'">
+            <ion-label>Jeux Vidéo</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Cuisine')" [color]="isPassionSelected('Cuisine') ? 'primary' : 'medium'">
+            <ion-label>Cuisine</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Danse')" [color]="isPassionSelected('Danse') ? 'primary' : 'medium'">
+            <ion-label>Danse</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Twitch')" [color]="isPassionSelected('Twitch') ? 'primary' : 'medium'">
+            <ion-label>Twitch</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Café')" [color]="isPassionSelected('Café') ? 'primary' : 'medium'">
+            <ion-label>Café</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Thé')" [color]="isPassionSelected('Thé') ? 'primary' : 'medium'">
+            <ion-label>Thé</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Street Food')"
+            [color]="isPassionSelected('Street Food') ? 'primary' : 'medium'">
+            <ion-label>Street Food</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Bière')" [color]="isPassionSelected('Bière') ? 'primary' : 'medium'">
+            <ion-label>Bière</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Vin')" [color]="isPassionSelected('Vin') ? 'primary' : 'medium'">
+            <ion-label>Vin</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Balade')" [color]="isPassionSelected('Balade') ? 'primary' : 'medium'">
+            <ion-label>Balade</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Camping')" [color]="isPassionSelected('Camping') ? 'primary' : 'medium'">
+            <ion-label>Camping</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Road Trip')"
+            [color]="isPassionSelected('Road Trip') ? 'primary' : 'medium'">
+            <ion-label>Road Trip</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Guitarre')" [color]="isPassionSelected('Guitarre') ? 'primary' : 'medium'">
+            <ion-label>Guitarre</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Piano')" [color]="isPassionSelected('Piano') ? 'primary' : 'medium'">
+            <ion-label>Piano</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Techno')" [color]="isPassionSelected('Techno') ? 'primary' : 'medium'">
+            <ion-label>Techno</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="4">
+          <ion-chip (click)="togglePassion('Rap')" [color]="isPassionSelected('Rap') ? 'primary' : 'medium'">
+            <ion-label>Rap</ion-label>
+          </ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
+    <!-- Étape 7: Photos -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" *ngFor="let imageUrl of uploadedImageUrls; let i = index">
+          <ion-card>
+            <ion-card-content class="ion-text-center">
+              <ion-button fill="clear" color="secondary" (click)="takePicture(i)">
+                <ion-icon name="add"></ion-icon>
+              </ion-button>
+              <img *ngIf="imageUrl" [src]="imageUrl" alt="Image {{i + 1}}" width="100" height="100" />
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Étape 8: Ville -->
 
-<ion-grid>
-  <ion-row>
-    <ion-col size="4" *ngFor="let imageUrl of uploadedImageUrls; let i = index">
-      <ion-card>
-        <ion-card-content class="ion-text-center">
-          <ion-button fill="clear" color="secondary" (click)="takePicture(i)">
-            <ion-icon name="add"></ion-icon>
-          </ion-button>
-          <img *ngIf="imageUrl" [src]="imageUrl" alt="Image {{i + 1}}" width="100" height="100" />
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">Ville</ion-label>
+          <ion-input formControlName="city" placeholder="Entrez votre ville"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
 
     <button (click)="validateForm()">Validate</button>
   </form>

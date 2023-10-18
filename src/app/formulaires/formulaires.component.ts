@@ -6,6 +6,7 @@ import { FirebaseService } from '../Services/firebase.service';
 import { AuthService } from '../Services/auth.service';
 import { firstValueFrom } from 'rxjs';
 
+
 @Component({
   selector: 'app-formulaires',
   templateUrl: './formulaires.component.html',
@@ -20,6 +21,8 @@ export class FormulairesComponent {
   selectedPassionsCount: number = 0;
   uploadedImageUrls: (string | null)[] = [null, null, null, null, null, null];
   birthday: string = '';
+
+
   form: FormGroup = new FormGroup({
     firstname: new FormControl('', Validators.compose([Validators.required])),
     birthday: new FormControl('', Validators.compose([Validators.required])),
@@ -28,12 +31,15 @@ export class FormulairesComponent {
     lookingfor: new FormControl('', Validators.compose([Validators.required])),
     passion: new FormControl('', Validators.compose([Validators.required])),
     photo: new FormControl('', Validators.compose([Validators.required])),
+    city: new FormControl('', Validators.compose([Validators.required])),
   });
 
   constructor(
     private readonly router: Router,
     private readonly _fireStore: FirebaseService,
     private readonly _auth: AuthService,
+
+
   ) {}
 
   async validateForm() {

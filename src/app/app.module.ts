@@ -14,6 +14,7 @@ import { PageAppComponent } from './page-app/page-app.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { provideFirestore } from '@angular/fire/firestore';
 import { getFirestore } from 'firebase/firestore';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,10 @@ import { getFirestore } from 'firebase/firestore';
     provideStorage(() => getStorage()),
     IonicModule.forRoot(),
     FormsModule,
+    HttpClientModule
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
