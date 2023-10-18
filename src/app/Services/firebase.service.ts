@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { User } from '@angular/fire/auth';
 import { Firestore, query, collectionData} from '@angular/fire/firestore';
 import { getDownloadURL, ref, Storage } from '@angular/fire/storage';
 import { collection, doc, setDoc, where, addDoc, getDoc} from 'firebase/firestore';
 import { uploadBytes } from 'firebase/storage';
 import { Camera, CameraResultType } from '@capacitor/camera';
-import { firstValueFrom } from 'rxjs';
+
 import { AuthService } from './auth.service';
-import { HttpClientModule } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +18,7 @@ export class FirebaseService {
     private readonly _fireStore: Firestore,
     private readonly _storage: Storage,
     private readonly _auth: AuthService,
-    private readonly _http: HttpClientModule
+
   ) { }
 
   UserArrayLike(id: string){

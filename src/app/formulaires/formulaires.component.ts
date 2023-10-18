@@ -1,10 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Storage } from '@angular/fire/storage';
 import { FirebaseService } from '../Services/firebase.service';
 import { AuthService } from '../Services/auth.service';
 import { firstValueFrom } from 'rxjs';
+import { APIService } from '../Services/api.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class FormulairesComponent {
   selectedPassionsCount: number = 0;
   uploadedImageUrls: (string | null)[] = [null, null, null, null, null, null];
   birthday: string = '';
-
+  filteredCities: string[] = [];
 
   form: FormGroup = new FormGroup({
     firstname: new FormControl('', Validators.compose([Validators.required])),
@@ -38,6 +38,7 @@ export class FormulairesComponent {
     private readonly router: Router,
     private readonly _fireStore: FirebaseService,
     private readonly _auth: AuthService,
+    private readonly _api: APIService,
 
 
   ) {}
@@ -99,5 +100,22 @@ export class FormulairesComponent {
     return !(this.selectedDesire || this.selectedLookingFor || this.selectedOption || this.selectedPassion );
   }
 
+  // async searchCities(cityName: string | undefined) {
+  //   if (cityName !== undefined && cityName.length >= 3) {
+  //     const apiKey = 'votre_clé_api'; // Remplacez 'votre_clé_api' par votre clé API
+  //     const apiUrl = `http://api.geonames.org/postalCodeSearchJSON?placename_startsWith=${cityName}&maxRows=10&username=${apiKey}`;
+
+  //     try {
+  //       const data = await this._api.getCities(apiUrl);
+  //       data.subscribe((response: any) => {
+  //         this.filteredCities = response.postalCodes.map((item: any) => item.placeName);
+  //       });
+  //     } catch (error) {
+  //       console.error('Erreur lors de la recherche de villes :', error);
+  //     }
+  //   } else {
+  //     this.filteredCities = [];
+  //   }
+  // }
 
 }
