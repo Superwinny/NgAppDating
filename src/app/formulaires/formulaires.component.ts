@@ -27,7 +27,7 @@ export class FormulairesComponent {
   form: FormGroup = new FormGroup({
     firstname: new FormControl('', Validators.compose([
       Validators.required,
-      Validators.minLength(2),
+      Validators.minLength(4),
       Validators.maxLength(10)
     ])),
     birthday: new FormControl('', Validators.compose([Validators.required])),
@@ -102,10 +102,10 @@ export class FormulairesComponent {
   }
 }
 
-  isButtonDisabled(): boolean {
+  // isButtonDisabled(): boolean {
 
-    return !(this.selectedDesire || this.selectedLookingFor || this.selectedOption || this.selectedPassion );
-  }
+  //   return !(this.selectedDesire || this.selectedLookingFor || this.selectedOption || this.selectedPassion );
+  // }
 
   setFormToDisplay(form: string){
     this.formulaireToDisplay = form
@@ -117,10 +117,6 @@ export class FormulairesComponent {
     this.form.patchValue({
       birthday : formattedString
     })
-
-      console.log(formattedString); // Jun 4, 2021
-
-
   }
   // async searchCities(cityName: string | undefined) {
   //   if (cityName !== undefined && cityName.length >= 3) {
