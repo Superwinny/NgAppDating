@@ -18,8 +18,14 @@
 img{
   display: block;
   max-height: 100%;
-  max-width: none!important;
+  // max-width: none!important;
 }
+.col-img ion-card img {
+  width: 100%;
+  height: auto;
+  // object-fit: cover; /* Pour ajuster l'image à la taille de la carte sans déformation */
+}
+
 }
 
 
