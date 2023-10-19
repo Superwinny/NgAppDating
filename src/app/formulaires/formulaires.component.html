@@ -284,6 +284,30 @@
 
     <!-- Étape 7: Photos -->
     <ion-grid>
+      <div [hidden]="formulaireToDisplay !== 'photos'">
+        <h1>Ajoute tes photos récentes</h1>
+        <p>Tu dois au minimum rajouter 2 photos pour commencer l0aventure. Ajoutes-en 6 si tu veux faire parti des meilleures</p>
+        <ion-row>
+          <ion-col size="4" *ngFor="let imageUrl of uploadedImageUrls; let i = index">
+            <ion-card>
+              <ion-card-content class="ion-text-center">
+                <!-- Remplacez l'icône par l'image (si une image est disponible) -->
+                <img *ngIf="imageUrl" [src]="imageUrl" alt="Image {{i + 1}}" width="100" height="100" (click)="takePicture(i)" />
+
+                <!-- Sinon, affichez l'icône d'ajout -->
+                <ion-icon *ngIf="!imageUrl" name="add" (click)="takePicture(i)"></ion-icon>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col>
+            <ion-button [disabled]="allImagesUploaded < 1" (click)="setFormToDisplay('city')">Suivant</ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+    <!-- <ion-grid>
       <div  [hidden]="formulaireToDisplay !=='photos'">
         <ion-row>
           <ion-col size="4" *ngFor="let imageUrl of uploadedImageUrls; let i = index">
@@ -303,11 +327,12 @@
           </ion-col>
         </ion-row>
       </div>
-    </ion-grid>
+    </ion-grid> -->
 
     <!-- Étape 8: Ville -->
     <ion-grid>
       <div  [hidden]="formulaireToDisplay !=='city'">
+        <h1>Rajoute ta ville</h1>
         <ion-row>
           <ion-col>
             <ion-item>
