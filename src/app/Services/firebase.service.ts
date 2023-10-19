@@ -107,7 +107,16 @@ async  takePicture(){
        throw new Error('User profile does not exist.');
      }
    }
+  async hasFilledForm(): Promise<boolean> {
+    const user = (await firstValueFrom(this._auth.currentUser)) as User;
+     if (!user) {
+       throw new Error('User is not logged in.');
+     }
 
+     const userProfileDoc = doc(this._fireStore, 'user', user.uid);
+     const userProfileData = await getDoc(userProfileDoc);
+     return userProfileData.exists();
+  }
 }
 
 

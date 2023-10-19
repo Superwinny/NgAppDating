@@ -7,9 +7,7 @@ import { Auth, GoogleAuthProvider,authState,signInWithPopup, signOut } from '@an
 export class AuthService {
 
   currentUser = authState(this._auth as any)
-   private userState = {
-     hasFilledForm: false,
-   };
+
   constructor(
     private readonly _auth: Auth
   ) { }
@@ -26,10 +24,8 @@ export class AuthService {
     await signOut(this._auth);
   }
 
-  hasFilledForm(): boolean {
-    return this.userState.hasFilledForm;
-  }
-  markFormAsFilled() {
-    this.userState.hasFilledForm = true;
-  }
+
+  // markFormAsFilled() {
+  //   this.hasFilledForm = true;
+  // }
 }
