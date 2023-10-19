@@ -16,7 +16,7 @@ import { format, parseISO } from 'date-fns';
 export class FormulairesComponent {
 
   selectedOption: string = '';
-  // selectedDesire: string = '';
+  selectedDesire: string = '';
   // selectedLookingFor: string = '';
   selectedPassion: string[] = [];
   selectedPassionsCount: number = 0;
@@ -78,7 +78,7 @@ export class FormulairesComponent {
 
 
   setDesire(desire: string) {
-    this.selectedOption = desire;
+    this.selectedDesire = desire;
     this.form.get('desire')?.setValue(desire);
   }
 
