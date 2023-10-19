@@ -14,9 +14,10 @@ import { format, parseISO } from 'date-fns';
   encapsulation: ViewEncapsulation.None,
 })
 export class FormulairesComponent {
+
   selectedOption: string = '';
-  selectedDesire: string = '';
-  selectedLookingFor: string = '';
+  // selectedDesire: string = '';
+  // selectedLookingFor: string = '';
   selectedPassion: string[] = [];
   selectedPassionsCount: number = 0;
   uploadedImageUrls: (string | null)[] = [null, null, null, null, null, null];
@@ -77,12 +78,12 @@ export class FormulairesComponent {
 
 
   setDesire(desire: string) {
-    this.selectedDesire = desire;
+    this.selectedOption = desire;
     this.form.get('desire')?.setValue(desire);
   }
 
   setLookingFor(lookingFor: string) {
-    this.selectedLookingFor = lookingFor;
+    this.selectedOption = lookingFor;
     this.form.get('lookingfor')?.setValue(lookingFor);
   }
   isPassionSelected(passion: string): boolean {
@@ -102,10 +103,6 @@ export class FormulairesComponent {
   }
 }
 
-   isButtonDisabled(): boolean {
-
-     return !(this.selectedDesire || this.selectedLookingFor || this.selectedOption || this.selectedPassion );
-   }
 
   setFormToDisplay(form: string){
     this.formulaireToDisplay = form

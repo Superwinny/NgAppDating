@@ -27,9 +27,10 @@
     <!-- Étape 3: Genre -->
     <ion-grid class="ion-no-padding" >
       <div [hidden]="formulaireToDisplay !=='gender'">
+        <h1>A quel Genre tu t'identifies?</h1>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
-            <ion-label></ion-label>
+            <ion-label for="gender"></ion-label>
             <ion-button (click)="setGender('Homme')"
               [color]="selectedOption === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
           </ion-col>
@@ -52,18 +53,19 @@
     <!-- Étape 4: Genre de la personne à rencontrer -->
     <ion-grid class="ion-no-padding">
       <div [hidden]="formulaireToDisplay !=='desire'">
+        <h1>Quel Genre tu aimerais rencontrer?</h1>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
-            <ion-label></ion-label>
-            <ion-button (click)="setLookingFor('Homme')"
-              [color]="selectedLookingFor === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
+            <ion-label for="desire"></ion-label>
+            <ion-button (click)="setDesire('Homme')"
+              [color]="selectedOption === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label></ion-label>
-            <ion-button (click)="setLookingFor('Femme')"
-              [color]="selectedLookingFor === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
+            <ion-button (click)="setDesire('Femme')"
+              [color]="selectedOption === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
           </ion-col>
         </ion-row>
 
@@ -77,26 +79,27 @@
 
     <!-- Étape 5: Type de relation -->
     <ion-grid class="ion-no-padding">
-      <div  [hidden]="formulaireToDisplay !=='lookingfor'">
+      <div [hidden]="formulaireToDisplay !=='lookingfor'">
+        <h1>Tu recherche quoi?</h1>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
-            <ion-label></ion-label>
-            <ion-button (click)="setDesire('Relation Serieuse')"
-              [color]="selectedDesire === 'Relation Serieuse' ? 'primary' : 'medium'">Relation Serieuse</ion-button>
+            <ion-label for="lookingfor"></ion-label>
+            <ion-button (click)="setLookingFor('Relation Serieuse')"
+              [color]="selectedOption === 'Relation Serieuse' ? 'primary' : 'medium'">Relation Serieuse</ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label></ion-label>
-            <ion-button (click)="setDesire('Amis')"
-              [color]="selectedDesire === 'Amis' ? 'primary' : 'medium'">Amis</ion-button>
+            <ion-button (click)="setLookingFor('Amis')"
+              [color]="selectedOption === 'Amis' ? 'primary' : 'medium'">Amis</ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label></ion-label>
-            <ion-button (click)="setDesire('Sans prise de tete')"
-              [color]="selectedDesire === 'Sans prise de tete' ? 'primary' : 'medium'">Sans prise de tete</ion-button>
+            <ion-button (click)="setLookingFor('Sans prise de tete')"
+              [color]="selectedOption === 'Sans prise de tete' ? 'primary' : 'medium'">Sans prise de tete</ion-button>
           </ion-col>
         </ion-row>
 
@@ -105,6 +108,7 @@
             <ion-button [disabled]="!form.get('lookingfor')?.valid" (click)="setFormToDisplay('passions')">Suivant</ion-button>
           </ion-col>
         </ion-row>
+
       </div>
     </ion-grid>
 
@@ -113,6 +117,7 @@
     <!-- Étape 6: Passion -->
     <ion-grid class="ion-no-padding">
       <div  [hidden]="formulaireToDisplay !=='passions'">
+        <h1>Quelle sont tes passions?</h1>
         <ion-row>
           <ion-col size="12">
             {{ selectedPassionsCount }} / 7
@@ -311,11 +316,7 @@
             </ion-item>
           </ion-col>
         </ion-row>
-        <ion-row class="ion-align-items-center ion-justify-content-center">
-          <ion-col>
-            <ion-button (click)="validateForm()">Suivant</ion-button>
-          </ion-col>
-        </ion-row>
+
       </div>
     </ion-grid>
     <!-- <ion-list *ngIf="filteredCities.length > 0">
@@ -323,5 +324,10 @@
         {{ city }}
       </ion-item>
     </ion-list> -->
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col>
+        <ion-button (click)="validateForm()">Suivant</ion-button>
+      </ion-col>
+    </ion-row>
   </form>
 </ion-content>
