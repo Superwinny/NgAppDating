@@ -102,10 +102,10 @@ export class FormulairesComponent {
   }
 }
 
-  // isButtonDisabled(): boolean {
+   isButtonDisabled(): boolean {
 
-  //   return !(this.selectedDesire || this.selectedLookingFor || this.selectedOption || this.selectedPassion );
-  // }
+     return !(this.selectedDesire || this.selectedLookingFor || this.selectedOption || this.selectedPassion );
+   }
 
   setFormToDisplay(form: string){
     this.formulaireToDisplay = form
