@@ -2,7 +2,7 @@
   <h1>Form</h1>
   <form [formGroup]="form">
     <!-- Étape 1: Prénom -->
-    <div>
+    <div [hidden]="formulaireToDisplay !=='firstname'">
       <ion-row>
         <h1>C'est quoi ton prénom</h1>
       </ion-row>
@@ -15,15 +15,12 @@
       </ion-item>
       <ion-grid class="ion-no-padding">
       </ion-grid>
+      <ion-button [disabled]="!form.get('firstname')?.valid" (click)="setFormToDisplay('birthday')">Next Step</ion-button>
     </div>
 
     <!-- Étape 2: Date de naissance -->
-    <div>
-      <ion-item>
-        <ion-label position="stacked">Date de naissance</ion-label>
-        <ion-input type="text" placeholder="JJ/MM/AAAA" formControlName="birthday"></ion-input>
-      </ion-item>
-      <ion-button (click)="validateForm()">Validate birthday</ion-button>
+    <div [hidden]="formulaireToDisplay !=='birthday'">
+      <ion-datetime presentation="date" (ionChange)="testdate($event)"></ion-datetime>
     </div>
 
     <!-- Étape 3: Genre -->

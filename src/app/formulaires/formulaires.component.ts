@@ -5,7 +5,7 @@ import { FirebaseService } from '../Services/firebase.service';
 import { AuthService } from '../Services/auth.service';
 import { firstValueFrom } from 'rxjs';
 import { APIService } from '../Services/api.service';
-
+import { format, parseISO } from 'date-fns';
 
 @Component({
   selector: 'app-formulaires',
@@ -22,9 +22,14 @@ export class FormulairesComponent {
   uploadedImageUrls: (string | null)[] = [null, null, null, null, null, null];
   birthday: string = '';
   filteredCities: string[] = [];
+  formulaireToDisplay : string = 'firstname'
 
   form: FormGroup = new FormGroup({
-    firstname: new FormControl('', Validators.compose([Validators.required])),
+    firstname: new FormControl('', Validators.compose([
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(10)
+    ])),
     birthday: new FormControl('', Validators.compose([Validators.required])),
     gender: new FormControl('', Validators.compose([Validators.required])),
     desire: new FormControl('', Validators.compose([Validators.required])),
@@ -32,6 +37,7 @@ export class FormulairesComponent {
     passion: new FormControl('', Validators.compose([Validators.required])),
     photo: new FormControl('', Validators.compose([Validators.required])),
     city: new FormControl('', Validators.compose([Validators.required])),
+
   });
 
   constructor(
@@ -41,7 +47,8 @@ export class FormulairesComponent {
     private readonly _api: APIService,
 
 
-  ) {}
+  ) {
+  }
 
   async validateForm() {
     const user = await firstValueFrom(this._auth.currentUser);
@@ -100,6 +107,21 @@ export class FormulairesComponent {
     return !(this.selectedDesire || this.selectedLookingFor || this.selectedOption || this.selectedPassion );
   }
 
+  setFormToDisplay(form: string){
+    this.formulaireToDisplay = form
+  }
+
+  testdate(event: any){
+    const dateFromIonDatetime = event.detail.value;
+    const formattedString = format(parseISO(dateFromIonDatetime), 'yyyy/MM/dd');
+    this.form.patchValue({
+      birthday : formattedString
+    })
+
+      console.log(formattedString); // Jun 4, 2021
+
+
+  }
   // async searchCities(cityName: string | undefined) {
   //   if (cityName !== undefined && cityName.length >= 3) {
   //     const apiKey = 'votre_clé_api'; // Remplacez 'votre_clé_api' par votre clé API

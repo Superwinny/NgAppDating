@@ -23,7 +23,7 @@
     <ion-grid>
       <ion-row>
         <ion-col class="col-img">
-          <ion-card *ngFor="let imageUrl of userImages">
+          <ion-card *ngFor="let imageUrl of user.photos">
             <img [src]="imageUrl" alt="User Image" />
           </ion-card>
         </ion-col>

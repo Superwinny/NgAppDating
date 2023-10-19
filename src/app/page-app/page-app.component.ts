@@ -24,9 +24,10 @@ async Init(){
   const user = await firstValueFrom(this._authservice.currentUser);
   if (user?.uid) {
     this.UserArrayLike = this._firestore.UserArrayLike(user.uid);
-     this.userImages = await this._firestore.getProfileImageURL();
-     console.log(this.userImages);
+    //  this.userImages = await this._firestore.getProfileImageURL();
+
   }
+
 }
 
 }

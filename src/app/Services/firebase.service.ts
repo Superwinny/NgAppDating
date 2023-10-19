@@ -6,7 +6,7 @@ import { uploadBytes } from 'firebase/storage';
 import { Camera, CameraResultType } from '@capacitor/camera';
 
 import { AuthService } from './auth.service';
-import { firstValueFrom } from 'rxjs';
+import { combineLatest, firstValueFrom, map, switchMap } from 'rxjs';
 import { User } from 'firebase/auth';
 
 @Injectable({
@@ -33,7 +33,15 @@ export class FirebaseService {
     const refCollection = collection(this._fireStore, 'user');
     const q = query(refCollection, where('isConnected', '==', true));
     const data = collectionData(q, { idField: 'id' });
-    return data as any;
+    return combineLatest([
+      this._auth.currentUser,
+      data
+    ])
+    .pipe(
+      map(([currentUser, data]) => {
+        return data.filter(d => d.id !== currentUser?.uid) as any
+      }),
+    );
 
   }
 
@@ -91,22 +99,22 @@ async  takePicture(){
       throw error; // Propagez l'erreur pour qu'elle puisse être gérée dans le composant
     }
   }
-   async getProfileImageURL(): Promise<string[]> {
-     const user = (await firstValueFrom(this._auth.currentUser)) as User;
-     if (!user) {
-       throw new Error('User is not logged in.');
-     }
+  //  async getProfileImageURL(): Promise<string[]> {
+  //    const user = (await firstValueFrom(this._auth.currentUser)) as User;
+  //    if (!user) {
+  //      throw new Error('User is not logged in.');
+  //    }
 
-     const userProfileDoc = doc(this._fireStore, 'user', user.uid);
-     const userProfileData = await getDoc(userProfileDoc);
+  //    const userProfileDoc = doc(this._fireStore, 'user', user.uid);
+  //    const userProfileData = await getDoc(userProfileDoc);
 
-     if (userProfileData.exists()) {
-       const userData = userProfileData.data() as any;
-       return userData.photos.filter(Boolean) || [];
-     } else {
-       throw new Error('User profile does not exist.');
-     }
-   }
+  //    if (userProfileData.exists()) {
+  //      const userData = userProfileData.data() as any;
+  //      return userData.photos.filter(Boolean) || [];
+  //    } else {
+  //      throw new Error('User profile does not exist.');
+  //    }
+  //  }
   async hasFilledForm(): Promise<boolean> {
     const user = (await firstValueFrom(this._auth.currentUser)) as User;
      if (!user) {
