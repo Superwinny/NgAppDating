@@ -299,7 +299,7 @@
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col>
-            <ion-button [disabled]="!form.get('photos')?.valid" (click)="setFormToDisplay('city')">Suivant</ion-button>
+            <ion-button [disabled]="allImagesUploaded < 1"  (click)="setFormToDisplay('city')">Suivant</ion-button>
           </ion-col>
         </ion-row>
       </div>

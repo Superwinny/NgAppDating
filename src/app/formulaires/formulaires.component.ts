@@ -14,7 +14,7 @@ import { format, parseISO } from 'date-fns';
   encapsulation: ViewEncapsulation.None,
 })
 export class FormulairesComponent {
-
+  allImagesUploaded: number = 0;
   selectedOption: string = '';
   selectedDesire: string = '';
   // selectedLookingFor: string = '';
@@ -36,7 +36,8 @@ export class FormulairesComponent {
     desire: new FormControl('', Validators.compose([Validators.required])),
     lookingfor: new FormControl('', Validators.compose([Validators.required])),
     passion: new FormControl('', Validators.compose([Validators.required])),
-    photo: new FormControl('', Validators.compose([Validators.required])),
+    // photo: new FormControl('', Validators.compose([Validators.required])),
+    photo: new FormControl(''),
     city: new FormControl('', Validators.compose([Validators.required])),
 
   });
@@ -66,10 +67,23 @@ export class FormulairesComponent {
       const imageUrl = await this._fireStore.takePictureAndUpload();
       console.log('Image URL:', imageUrl);
       this.uploadedImageUrls[index] = imageUrl;
+
+      // Mettez à jour le compteur d'images téléchargées
+      this.allImagesUploaded = this.uploadedImageUrls.filter((url) => url !== null).length;
     } catch (error) {
       console.error('Erreur lors de la prise de la photo et de son téléchargement :', error);
     }
   }
+
+  // async takePicture(index: number) {
+  //   try {
+  //     const imageUrl = await this._fireStore.takePictureAndUpload();
+  //     console.log('Image URL:', imageUrl);
+  //     this.uploadedImageUrls[index] = imageUrl;
+  //   } catch (error) {
+  //     console.error('Erreur lors de la prise de la photo et de son téléchargement :', error);
+  //   }
+  // }
 
   setGender(gender: string) {
     this.selectedOption = gender;
