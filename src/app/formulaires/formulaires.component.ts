@@ -24,7 +24,6 @@ export class FormulairesComponent {
   birthday: string = '';
   filteredCities: string[] = [];
   formulaireToDisplay : string = 'firstname'
-
   form: FormGroup = new FormGroup({
     firstname: new FormControl('', Validators.compose([
       Validators.required,
@@ -50,6 +49,7 @@ export class FormulairesComponent {
 
 
   ) {
+
   }
 
   async validateForm() {
@@ -146,8 +146,5 @@ export class FormulairesComponent {
   //     this.filteredCities = [];
   //   }
   // }
-  centerButtonStyles = {
-    'margin': 'auto', // Centre le bouton verticalement
-    'display': 'block', // Assure que le bouton occupe toute la largeur
-  };
+
 }

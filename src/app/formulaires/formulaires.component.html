@@ -40,15 +40,15 @@
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label for="gender"></ion-label>
-            <ion-button shape="round" fill="outline" size="large"   (click)="setGender('Homme')"
-              [color]="selectedOption === 'Homme' ? 'primary' : 'large'">Homme</ion-button>
+            <ion-button  size="medium"  expand="full" fill="outline"    (click)="setGender('Homme')"
+              [color]="selectedOption === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label></ion-label>
-            <ion-button shape="round" fill="outline" size="large"  expand="full" (click)="setGender('Femme')"
-              [color]="selectedOption === 'Femme' ? 'primary' : 'large'">Femme</ion-button>
+            <ion-button size="medium"  expand="full" fill="outline"  (click)="setGender('Femme')"
+              [color]="selectedOption === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
@@ -66,14 +66,14 @@
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label for="desire"></ion-label>
-            <ion-button (click)="setDesire('Homme')"
+            <ion-button  size="medium"  expand="full" fill="outline" (click)="setDesire('Homme')"
               [color]="selectedDesire === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label></ion-label>
-            <ion-button (click)="setDesire('Femme')"
+            <ion-button size="medium"  expand="full" fill="outline" (click)="setDesire('Femme')"
               [color]="selectedDesire === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
           </ion-col>
         </ion-row>
@@ -93,28 +93,28 @@
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label for="lookingfor"></ion-label>
-            <ion-button (click)="setLookingFor('Relation Serieuse')"
+            <ion-button size="medium"  expand="full" fill="outline"  (click)="setLookingFor('Relation Serieuse')"
               [color]="selectedOption === 'Relation Serieuse' ? 'primary' : 'medium'">Relation Serieuse</ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label></ion-label>
-            <ion-button (click)="setLookingFor('Amis')"
+            <ion-button size="medium"  expand="full" fill="outline" (click)="setLookingFor('Amis')"
               [color]="selectedOption === 'Amis' ? 'primary' : 'medium'">Amis</ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label></ion-label>
-            <ion-button (click)="setLookingFor('Sans prise de tete')"
-              [color]="selectedOption === 'Sans prise de tete' ? 'primary' : 'medium'">Sans prise de tete</ion-button>
+            <ion-button size="medium"  expand="full" fill="outline" (click)="setLookingFor('On verra')"
+              [color]="selectedOption === 'On verra' ? 'primary' : 'medium'">On verra</ion-button>
           </ion-col>
         </ion-row>
 
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col>
-            <ion-button  shape="round" size="medium" [disabled]="!form.get('lookingfor')?.valid" (click)="setFormToDisplay('passions')">Suivant</ion-button>
+            <ion-button  shape="round" size="medium"  [disabled]="!form.get('lookingfor')?.valid" (click)="setFormToDisplay('passions')">Suivant</ion-button>
           </ion-col>
         </ion-row>
 
@@ -311,32 +311,11 @@
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col>
-            <ion-button  shape="round" size="medium"  [disabled]="allImagesUploaded < 1" (click)="setFormToDisplay('city')">Suivant</ion-button>
+            <ion-button  shape="round" size="medium"  [disabled]="allImagesUploaded < 2" (click)="setFormToDisplay('city')">Suivant</ion-button>
           </ion-col>
         </ion-row>
       </div>
     </ion-grid>
-    <!-- <ion-grid>
-      <div  [hidden]="formulaireToDisplay !=='photos'">
-        <ion-row>
-          <ion-col size="4" *ngFor="let imageUrl of uploadedImageUrls; let i = index">
-            <ion-card>
-              <ion-card-content class="ion-text-center">
-                <ion-button fill="clear" color="secondary" (click)="takePicture(i)">
-                  <ion-icon name="add"></ion-icon>
-                </ion-button>
-                <img *ngIf="imageUrl" [src]="imageUrl" alt="Image {{i + 1}}" width="100" height="100" />
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-        <ion-row class="ion-align-items-center ion-justify-content-center">
-          <ion-col>
-            <ion-button [disabled]="allImagesUploaded < 1"  (click)="setFormToDisplay('city')">Suivant</ion-button>
-          </ion-col>
-        </ion-row>
-      </div>
-    </ion-grid> -->
 
     <!-- Étape 8: Ville -->
     <ion-grid>

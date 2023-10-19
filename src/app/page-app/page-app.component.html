@@ -2,15 +2,10 @@
   <ion-header [translucent]="false" class="ion-border">
     <ion-grid [fixed]="true" >
       <ion-row>
-        <ion-col>
-          <ion-icon name="logo-ionic" size="large"></ion-icon>
+        <ion-col  >
+          <ion-icon name="person-circle-outline" size="large"></ion-icon>
         </ion-col>
-        <ion-col>
-          <ion-img src=""></ion-img>
-        </ion-col>
-        <ion-col>
-          <ion-icon name="logo-ionic" size="large"></ion-icon>
-        </ion-col>
+
       </ion-row>
     </ion-grid>
   </ion-header>
@@ -40,8 +35,7 @@
            <p>{{user.birthday}}</p>
         </ion-col>
         <ion-col>
-          <ion-icon name="logo-ionic" size="small"></ion-icon>
-          <p>km</p>
+          <p>{{user.city}}</p>
        </ion-col>
       </ion-row>
     </ion-card-header>
@@ -52,15 +46,15 @@
   </ion-card>
 
 
-  <ion-grid>
+  <!-- <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button>NO</ion-button>
+        <ion-button>Dislike</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button>Yes</ion-button>
+        <ion-button>Like</ion-button>
       </ion-col>
     </ion-row>
 
-  </ion-grid>
+  </ion-grid> -->
 </ion-content>
