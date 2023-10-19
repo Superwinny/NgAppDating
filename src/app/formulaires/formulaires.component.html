@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content class="body">
 
   <form [formGroup]="form">
     <!-- Étape 1: Prénom -->
@@ -13,38 +13,47 @@
             formControlName="firstname"></ion-input>
         </ion-row>
       </ion-item>
-      <ion-grid class="ion-no-padding">
-      </ion-grid>
-      <ion-button [disabled]="!form.get('firstname')?.valid" (click)="setFormToDisplay('birthday')">Suivant</ion-button>
+      <ion-row>
+        <ion-text color="danger">
+          <p>Tu ne pourras pas le changer après</p>
+        </ion-text>
+      </ion-row>
+      <ion-button   shape="round" size="medium"   [disabled]="!form.get('firstname')?.valid" (click)="setFormToDisplay('birthday')">Suivant</ion-button>
     </div>
 
     <!-- Étape 2: Date de naissance -->
     <div [hidden]="formulaireToDisplay !=='birthday'">
+      <ion-text>
+        <h1>Quelle est ta date de naissance?</h1>
+      </ion-text>
       <ion-datetime presentation="date" (ionChange)="testdate($event)"></ion-datetime>
-      <ion-button [disabled]="!form.get('birthday')?.valid" (click)="setFormToDisplay('gender')">Suivant</ion-button>
+      <ion-text>
+          <p>Ta date de naissance sera affiché sur ton profil, pas ton age</p>
+      </ion-text>
+      <ion-button shape="round" size="medium"  [disabled]="!form.get('birthday')?.valid" (click)="setFormToDisplay('gender')">Suivant</ion-button>
     </div>
 
     <!-- Étape 3: Genre -->
     <ion-grid class="ion-no-padding" >
-      <div [hidden]="formulaireToDisplay !=='gender'">
+      <div [hidden]="formulaireToDisplay !=='gender'" >
         <h1>A quel Genre tu t'identifies?</h1>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label for="gender"></ion-label>
-            <ion-button (click)="setGender('Homme')"
-              [color]="selectedOption === 'Homme' ? 'primary' : 'medium'">Homme</ion-button>
+            <ion-button shape="round" fill="outline" size="large"   (click)="setGender('Homme')"
+              [color]="selectedOption === 'Homme' ? 'primary' : 'large'">Homme</ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col size="4">
             <ion-label></ion-label>
-            <ion-button (click)="setGender('Femme')"
-              [color]="selectedOption === 'Femme' ? 'primary' : 'medium'">Femme</ion-button>
+            <ion-button shape="round" fill="outline" size="large"  expand="full" (click)="setGender('Femme')"
+              [color]="selectedOption === 'Femme' ? 'primary' : 'large'">Femme</ion-button>
           </ion-col>
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col>
-            <ion-button [disabled]="!form.get('gender')?.valid" (click)="setFormToDisplay('desire')">Suivant</ion-button>
+            <ion-button shape="round" size="medium"  [disabled]="!form.get('gender')?.valid" (click)="setFormToDisplay('desire')">Suivant</ion-button>
           </ion-col>
         </ion-row>
       </div>
@@ -71,7 +80,7 @@
 
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col>
-            <ion-button [disabled]="!form.get('desire')?.valid" (click)="setFormToDisplay('lookingfor')">Suivant</ion-button>
+            <ion-button shape="round" size="medium"  [disabled]="!form.get('desire')?.valid" (click)="setFormToDisplay('lookingfor')">Suivant</ion-button>
           </ion-col>
         </ion-row>
       </div>
@@ -105,7 +114,7 @@
 
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col>
-            <ion-button [disabled]="!form.get('lookingfor')?.valid" (click)="setFormToDisplay('passions')">Suivant</ion-button>
+            <ion-button  shape="round" size="medium" [disabled]="!form.get('lookingfor')?.valid" (click)="setFormToDisplay('passions')">Suivant</ion-button>
           </ion-col>
         </ion-row>
 
@@ -276,7 +285,7 @@
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col>
-            <ion-button [disabled]="!form.get('passions')?.valid" [disabled]="selectedPassionsCount !== 7" (click)="setFormToDisplay('photos')">Suivant</ion-button>
+            <ion-button  shape="round" size="medium"  [disabled]="!form.get('passions')?.valid" [disabled]="selectedPassionsCount !== 7" (click)="setFormToDisplay('photos')">Suivant</ion-button>
           </ion-col>
         </ion-row>
       </div>
@@ -286,7 +295,7 @@
     <ion-grid>
       <div [hidden]="formulaireToDisplay !== 'photos'">
         <h1>Ajoute tes photos récentes</h1>
-        <p>Tu dois au minimum rajouter 2 photos pour commencer l0aventure. Ajoutes-en 6 si tu veux faire parti des meilleures</p>
+        <p>Tu dois au minimum rajouter 2 photos pour commencer l'aventure. Ajoutes-en 6 si tu veux faire parti des meilleures</p>
         <ion-row>
           <ion-col size="4" *ngFor="let imageUrl of uploadedImageUrls; let i = index">
             <ion-card>
@@ -302,7 +311,7 @@
         </ion-row>
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col>
-            <ion-button [disabled]="allImagesUploaded < 1" (click)="setFormToDisplay('city')">Suivant</ion-button>
+            <ion-button  shape="round" size="medium"  [disabled]="allImagesUploaded < 1" (click)="setFormToDisplay('city')">Suivant</ion-button>
           </ion-col>
         </ion-row>
       </div>
@@ -342,6 +351,11 @@
           </ion-col>
         </ion-row>
 
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col>
+            <ion-button  shape="round" size="medium"  (click)="validateForm()">Suivant</ion-button>
+          </ion-col>
+        </ion-row>
       </div>
     </ion-grid>
     <!-- <ion-list *ngIf="filteredCities.length > 0">
@@ -349,10 +363,5 @@
         {{ city }}
       </ion-item>
     </ion-list> -->
-    <ion-row class="ion-align-items-center ion-justify-content-center">
-      <ion-col>
-        <ion-button (click)="validateForm()">Suivant</ion-button>
-      </ion-col>
-    </ion-row>
   </form>
 </ion-content>

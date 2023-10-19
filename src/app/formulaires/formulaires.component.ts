@@ -146,5 +146,8 @@ export class FormulairesComponent {
   //     this.filteredCities = [];
   //   }
   // }
-
+  centerButtonStyles = {
+    'margin': 'auto', // Centre le bouton verticalement
+    'display': 'block', // Assure que le bouton occupe toute la largeur
+  };
 }
